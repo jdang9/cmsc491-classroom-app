@@ -1,0 +1,7 @@
+<Alloy>
+    <NavigationWindow id="win1" platform="ios">
+        <Window id="win2" title="Red Window" backgroundColor="red">
+            <Button id="button" onClick="openBlueWindow">Open Blue Window</Button>
+        </Window>
+    </NavigationWindow>
+</Alloy>

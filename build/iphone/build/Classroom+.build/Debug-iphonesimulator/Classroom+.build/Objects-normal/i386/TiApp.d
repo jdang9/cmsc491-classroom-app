@@ -1,0 +1,57 @@
+dependencies: \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/TiApp.m \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/TiApp.h \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/TiHost.h \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/TiProxy.h \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/TiBase.h \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/TiThreading.h \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/TiPublicAPI.h \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/TiEvaluator.h \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/KrollContext.h \
+  headers/JavaScriptCore/TiCore.h headers/JavaScriptCore/Ti.h \
+  headers/JavaScriptCore/TiBase.h headers/JavaScriptCore/TiContextRef.h \
+  headers/JavaScriptCore/TiObjectRef.h \
+  headers/JavaScriptCore/TiValueRef.h \
+  headers/JavaScriptCore/WebKitAvailability.h \
+  headers/JavaScriptCore/TiStringRef.h \
+  headers/JavaScriptCore/TiStringRefCF.h \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/KrollCallback.h \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/KrollObject.h \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/TiBindingRunLoop.h \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/Bridge.h \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/TiStylesheet.h \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/KrollBridge.h \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/TiModule.h \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/TiUtils.h \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/TiDimension.h \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/TiColor.h \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/WebFont.h \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/TiFile.h \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/TiBuffer.h \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/TiBlob.h \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/XHRBridge.h \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/TiRootViewController.h \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/TiControllerProtocols.h \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/TiViewProxy.h \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/TiUIView.h \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/TiAnimation.h \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/TiPoint.h \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/ListenerEntry.h \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/LayoutConstraint.h \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/TiGradient.h \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/TiRect.h \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/TiViewTemplate.h \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/Webcolor.h \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/TiErrorController.h \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/NSData+Additions.h \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/ImageLoader.h \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/APSHTTPClient/APSHTTPClient.h \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/APSHTTPClient/APSHTTPRequest.h \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/APSHTTPClient/APSHTTPResponse.h \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/APSHTTPClient/APSHTTPPostForm.h \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/APSHTTPClient/APSHTTPHelper.h \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/TiDebugger.h \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/TiProfiler/TiProfiler.h \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/ApplicationDefaults.h \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/TiExceptionHandler.h \
+  /Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/build/iphone/Classes/Mimetypes.h

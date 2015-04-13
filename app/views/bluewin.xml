@@ -1,0 +1,5 @@
+<Alloy>
+    <Window id="win3" title="Blue Window" backgroundColor="blue">
+        <Button onClick="closeWindow">Close Window</Button>
+    </Window>
+</Alloy>
