@@ -1,0 +1,1 @@
+module.exports = [{"isId":true,"priority":100000.0002,"key":"tabGroup","style":{}},{"isId":true,"priority":100000.0003,"key":"tab","style":{}},{"isId":true,"priority":100000.0004,"key":"weekAtGlance","style":{backgroundColor:"#6699CC",color:"white",bottom:0,}}];

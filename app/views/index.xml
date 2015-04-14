@@ -1,7 +1,9 @@
 <Alloy>
-    <NavigationWindow id="win1" platform="ios">
-        <Window id="win2" title="Red Window" backgroundColor="red">
-            <Button id="button" onClick="openBlueWindow">Open Blue Window</Button>
-        </Window>
-    </NavigationWindow>
+	<TabGroup id="tabGroup">	
+		<Tab id="tab" title="Hello">
+			<Window id="win1">
+				<Button id="weekAtGlance" bottom="10px"></Button>
+			</Window>
+		</Tab>
+	</TabGroup>
 </Alloy>

@@ -1,7 +1,13 @@
-"#win1": {
-	background: "white"
-}
-"#win2": {
-	background: "black"
+"#tabGroup": {
+	
 }
 
+"#tab": {
+	
+}
+
+"#weekAtGlance": {
+	backgroundColor: "#6699CC",
+	color: "white",
+	bottom: 0
+}

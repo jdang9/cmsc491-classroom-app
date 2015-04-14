@@ -8,10 +8,6 @@ function __processArg(obj, key) {
 }
 
 function Controller() {
-    function openBlueWindow() {
-        var win3 = Alloy.createController("bluewin").getView();
-        $.win1.openWindow(win3);
-    }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "index";
     if (arguments[0]) {
@@ -27,59 +23,62 @@ function Controller() {
     }
     var $ = this;
     var exports = {};
-    var __defers = {};
-    $.__views.win2 = Ti.UI.createWindow({
-        background: "black",
-        id: "win2",
-        title: "Red Window",
-        backgroundColor: "red"
+    var __alloyId0 = [];
+    $.__views.win = Ti.UI.createWindow({
+        id: "win"
     });
-    $.__views.button = Ti.UI.createButton({
-        title: "Open Blue Window",
-        id: "button"
+    $.__views.label = Ti.UI.createLabel({
+        id: "label"
     });
-    $.__views.win2.add($.__views.button);
-    openBlueWindow ? $.__views.button.addEventListener("click", openBlueWindow) : __defers["$.__views.button!click!openBlueWindow"] = true;
-    $.__views.win1 = Ti.UI.iOS.createNavigationWindow({
-        background: "white",
-        window: $.__views.win2,
-        id: "win1"
+    $.__views.win.add($.__views.label);
+    $.__views.tab = Ti.UI.createTab({
+        window: $.__views.win,
+        id: "tab",
+        title: "Hello"
     });
-    $.__views.win1 && $.addTopLevelView($.__views.win1);
+    __alloyId0.push($.__views.tab);
+    $.__views.tabGroup = Ti.UI.createTabGroup({
+        tabs: __alloyId0,
+        id: "tabGroup"
+    });
+    $.__views.tabGroup && $.addTopLevelView($.__views.tabGroup);
     exports.destroy = function() {};
     _.extend($, $.__views);
-    var win2 = Titanium.UI.createWindow({
-        backgroundColor: "red",
-        title: "Red Window"
+    var win = Ti.UI.createWindow({
+        backgroundColor: "white",
+        exitOnClose: true,
+        fullscreen: false,
+        layout: "vertical",
+        title: "Classroom+"
     });
-    var win1 = Titanium.UI.iOS.createNavigationWindow({
-        window: win2
+    var label1 = Ti.UI.createLabel({
+        color: "#900",
+        font: {
+            fontSize: 48
+        },
+        shadowColor: "#aaa",
+        shadowOffset: {
+            x: 5,
+            y: 5
+        },
+        shadowRadius: 3,
+        text: "A simple label",
+        textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+        top: 30,
+        width: Ti.UI.SIZE,
+        height: Ti.UI.SIZE
     });
-    var win3 = Titanium.UI.createWindow({
-        backgroundColor: "blue",
-        title: "Blue Window"
+    var tabGroup = Ti.UI.createTabGroup({
+        title: "Tab Group"
     });
-    var button = Titanium.UI.createButton({
-        title: "Open Blue Window"
+    var tab = Ti.UI.createTab({
+        window: win,
+        title: "Home"
     });
-    button.addEventListener("click", function() {
-        win1.openWindow(win3, {
-            animated: true
-        });
-    });
-    win2.add(button);
-    var button2 = Titanium.UI.createButton({
-        title: "Close Blue Window"
-    });
-    button2.addEventListener("click", function() {
-        win1.closeWindow(win3, {
-            animated: false
-        });
-    });
-    win3.add(button2);
-    win1.open();
-    $.win1.open();
-    __defers["$.__views.button!click!openBlueWindow"] && $.__views.button.addEventListener("click", openBlueWindow);
+    tabGroup.addTab(tab);
+    win.add(label1);
+    tabGroup.add(win);
+    win.open();
     _.extend($, exports);
 }
 
