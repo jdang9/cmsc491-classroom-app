@@ -8,6 +8,47 @@ function __processArg(obj, key) {
 }
 
 function Controller() {
+    function doopen(evt) {
+        var activity = evt.source.getActivity();
+        activity.onCreateOptionsMenu = function(e) {
+            var item, menu;
+            menu = e.menu;
+            menu.clear();
+            switch (Alloy.Globals.currentTab) {
+              case 0:
+                item = e.menu.add({
+                    title: "Invite",
+                    showAsAction: Ti.Android.SHOW_AS_ACTION_ALWAYS,
+                    icon: Ti.Android.R.drawable.ic_menu_search
+                });
+                item.addEventListener("click", function() {
+                    $.win1.label.text = "You clicked the magnifying glass";
+                });
+                break;
+
+              case 1:
+                item1 = e.menu.add({
+                    title: "Share",
+                    showAsAction: Ti.Android.SHOW_AS_ACTION_ALWAYS,
+                    icon: Ti.Android.R.drawable.ic_menu_edit
+                });
+                item2 = e.menu.add({
+                    title: "Share",
+                    showAsAction: Ti.Android.SHOW_AS_ACTION_ALWAYS,
+                    icon: Ti.Android.R.drawable.ic_menu_add
+                });
+                item2.addEventListener("click", function() {
+                    $.win2.label.text = "You clicked the add class button";
+                });
+            }
+        };
+        Alloy.Globals.tabGroup.addEventListener("focus", function(evt) {
+            if ("undefined" != typeof evt.index) {
+                activity.invalidateOptionsMenu();
+                Alloy.Globals.currentTab = evt.index;
+            }
+        });
+    }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "index";
     if (arguments[0]) {
@@ -23,124 +64,75 @@ function Controller() {
     }
     var $ = this;
     var exports = {};
+    var __defers = {};
     var __alloyId0 = [];
-    $.__views.win1 = Ti.UI.createWindow({
+    $.__views.win1 = Alloy.createController("win1", {
         id: "win1"
     });
-    $.__views.weekAtGlance = Ti.UI.createButton({
-        backgroundColor: "#6699CC",
-        color: "white",
-        bottom: "10px",
-        id: "weekAtGlance"
+    $.__views.__alloyId1 = Ti.UI.createTab({
+        window: $.__views.win1.getViewEx({
+            recurse: true
+        }),
+        title: "DashBoard",
+        id: "__alloyId1"
     });
-    $.__views.win1.add($.__views.weekAtGlance);
-    $.__views.tab = Ti.UI.createTab({
-        window: $.__views.win1,
-        id: "tab",
-        title: "Hello"
+    __alloyId0.push($.__views.__alloyId1);
+    $.__views.win2 = Alloy.createController("win2", {
+        id: "win2"
     });
-    __alloyId0.push($.__views.tab);
-    $.__views.tabGroup = Ti.UI.createTabGroup({
+    $.__views.__alloyId3 = Ti.UI.createTab({
+        window: $.__views.win2.getViewEx({
+            recurse: true
+        }),
+        title: "Info",
+        id: "__alloyId3"
+    });
+    __alloyId0.push($.__views.__alloyId3);
+    $.__views.win3 = Alloy.createController("win3", {
+        id: "win3"
+    });
+    $.__views.__alloyId5 = Ti.UI.createTab({
+        window: $.__views.win3.getViewEx({
+            recurse: true
+        }),
+        title: "Courses",
+        id: "__alloyId5"
+    });
+    __alloyId0.push($.__views.__alloyId5);
+    $.__views.win4 = Alloy.createController("win4", {
+        id: "win4"
+    });
+    $.__views.__alloyId7 = Ti.UI.createTab({
+        window: $.__views.win4.getViewEx({
+            recurse: true
+        }),
+        title: "Collaboration",
+        id: "__alloyId7"
+    });
+    __alloyId0.push($.__views.__alloyId7);
+    $.__views.win5 = Alloy.createController("win5", {
+        id: "win5"
+    });
+    $.__views.__alloyId9 = Ti.UI.createTab({
+        window: $.__views.win5.getViewEx({
+            recurse: true
+        }),
+        title: "Check-in",
+        id: "__alloyId9"
+    });
+    __alloyId0.push($.__views.__alloyId9);
+    $.__views.index = Ti.UI.createTabGroup({
         tabs: __alloyId0,
-        id: "tabGroup"
+        id: "index"
     });
-    $.__views.tabGroup && $.addTopLevelView($.__views.tabGroup);
+    $.__views.index && $.addTopLevelView($.__views.index);
+    doopen ? $.__views.index.addEventListener("open", doopen) : __defers["$.__views.index!open!doopen"] = true;
     exports.destroy = function() {};
     _.extend($, $.__views);
-    var win1 = Ti.UI.createWindow({
-        backgroundColor: "white",
-        exitOnClose: true,
-        fullscreen: false,
-        layout: "vertical",
-        title: "Welcome to Classroom+ DashBoard!"
-    });
-    var label1 = Ti.UI.createLabel({
-        color: "#900",
-        font: {
-            fontSize: 48
-        },
-        shadowColor: "#aaa",
-        shadowOffset: {
-            x: 5,
-            y: 5
-        },
-        shadowRadius: 3,
-        text: "This is a DashBoard!",
-        textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-        top: 30,
-        width: Ti.UI.SIZE,
-        height: Ti.UI.SIZE
-    });
-    var win2 = Ti.UI.createWindow({
-        backgroundColor: "black",
-        exitOnClose: true,
-        fullscreen: false,
-        layout: "vertical",
-        title: "Your Profile"
-    });
-    var weekAtGlance = Ti.UI.createButton({
-        window: win2,
-        title: "Week At a Glance",
-        backgroundColor: "#6699CC",
-        color: "white",
-        height: 50,
-        width: 200,
-        top: 50
-    });
-    weekAtGlance.addEventListener("click", function() {
-        Ti.API.info("You clicked Week At a Glance Button");
-    });
-    var win3 = Ti.UI.createWindow({
-        backgroundColor: "blue",
-        exitOnClose: true,
-        fullscreen: false,
-        layout: "vertical",
-        title: "Your Courses"
-    });
-    var win4 = Ti.UI.createWindow({
-        backgroundColor: "red",
-        exitOnClose: true,
-        fullscreen: false,
-        layout: "vertical",
-        title: "Join the Team"
-    });
-    var win5 = Ti.UI.createWindow({
-        backgroundColor: "green",
-        exitOnClose: true,
-        fullscreen: false,
-        layout: "vertical",
-        title: "Uilities"
-    });
-    var tabGroup = Ti.UI.createTabGroup({});
-    var tab1 = Ti.UI.createTab({
-        window: win1,
-        title: "Dashboard"
-    });
-    var tab2 = Ti.UI.createTab({
-        window: win2,
-        title: "Info"
-    });
-    var tab3 = Ti.UI.createTab({
-        window: win3,
-        title: "Courses"
-    });
-    var tab4 = Ti.UI.createTab({
-        window: win4,
-        title: "Collaborate"
-    });
-    var tab5 = Ti.UI.createTab({
-        window: win5,
-        title: "Check-in"
-    });
-    tabGroup.setActiveTab(0);
-    tabGroup.addTab(tab1);
-    tabGroup.addTab(tab2);
-    tabGroup.addTab(tab3);
-    tabGroup.addTab(tab4);
-    tabGroup.addTab(tab5);
-    win1.add(label1);
-    win2.add(weekAtGlance);
-    tabGroup.open();
+    Alloy.Globals.tabGroup = $.index;
+    Alloy.Globals.currentTab = 0;
+    $.index.open();
+    __defers["$.__views.index!open!doopen"] && $.__views.index.addEventListener("open", doopen);
     _.extend($, exports);
 }
 

@@ -1,1 +1,1 @@
-/Users/JDang/Documents/Titanium_Studio_Workspace/Classroom+/Resources/alloy/CFG.js
+/Users/JDang/Documents/cmsc420-classroom-app/cmsc491-classroom-app/Resources/alloy/CFG.js

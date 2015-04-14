@@ -1,0 +1,5 @@
+<Alloy>
+	<Window class="container">
+		<Label id="label">This is Collaboration</Label>
+	</Window>
+</Alloy>

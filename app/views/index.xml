@@ -1,9 +1,20 @@
 <Alloy>
-	<TabGroup id="tabGroup">	
-		<Tab id="tab" title="Hello">
-			<Window id="win1">
-				<Button id="weekAtGlance" bottom="10px"></Button>
-			</Window>
+	<TabGroup onOpen="doopen">
+		<Tab title="DashBoard">
+			<Require src="win1" id="win1"/>
+		</Tab>
+		<Tab title="Info">
+			<Require src="win2" id="win2"/>
+		</Tab>
+		<Tab title="Courses">
+			<Require src="win3" id="win3"/>
+		</Tab>
+		<Tab title="Collaboration">
+			<Require src="win4" id="win4"/>
+		</Tab>
+		<Tab title="Check-in">
+			<Require src="win5" id="win5"/>
 		</Tab>
 	</TabGroup>
 </Alloy>
+

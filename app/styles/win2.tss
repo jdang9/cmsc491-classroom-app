@@ -1,0 +1,17 @@
+".container" : {
+  	backgroundColor: "#fff"
+}
+
+"Label":{
+	color: "#000"
+}
+
+"#weekAtGlance": {
+	// title: "Week At a Glance",
+	backgroundColor: "#6699CC",
+	color: "white",
+	height: Ti.UI.SIZE,
+	width: Ti.UI.SIZE,
+	top: '85%',
+	bottom: '50dp'
+}

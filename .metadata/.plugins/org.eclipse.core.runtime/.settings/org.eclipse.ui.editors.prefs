@@ -9,6 +9,7 @@ AbstractTextEditor.Color.SelectionForeground.SystemDefault=false
 CONFLICTING_COLOR=255,238,238
 INCOMING_COLOR=0,0,0
 OUTGOING_COLOR=0,0,0
+OccurrenceIndicationColor=153,181,217
 RESOLVED_COLOR=221,255,221
 additionIndicationColor=221,255,221
 changeIndicationColor=221,255,221

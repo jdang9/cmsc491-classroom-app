@@ -1,0 +1,5 @@
+<Alloy>
+	<Window class="container">
+		<Label id="label">This is the DashBoard</Label>
+	</Window>
+</Alloy>
