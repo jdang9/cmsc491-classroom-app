@@ -1,1 +1,1 @@
-/Users/JDang/Documents/cmsc420-classroom-app/cmsc491-classroom-app/Resources/android/alloy.js
+/Users/JDang/Documents/cmsc491-classroom-app/Resources/android/alloy.js
