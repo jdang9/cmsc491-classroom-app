@@ -1,0 +1,38 @@
+<Alloy>
+	
+	<Window class="container" layout="vertical">
+		
+		<TableView id="table" separatorColor="white">
+			
+			<TableViewSection id="aboveLogo">
+                <TableViewRow height="15%" width="100%"/>
+            </TableViewSection>
+            
+            <TableViewSection id="logo">
+            	
+                <TableViewRow height="300" width="100%">
+                	<ImageView id="image" image="https://i.imgur.com/NfLRcfN.png" height="100%" width="300" />
+                </TableViewRow>
+                
+            </TableViewSection>
+            
+            <TableViewSection id="textFields" layout="vertical">
+            	
+                <TableViewRow height="80" width="62%" align="center">
+                	<TextField id="text_username" hintText="Email / Username" paddingLeft="100" align="center" width="100%" height="60" />
+                </TableViewRow>
+                
+                <TableViewRow height="80" width="62%" align="center">
+                	<TextField id="text_password" hintText="Password" passwordMask="true" paddingLeft="100" width="100%" height="60" />
+                </TableViewRow>
+                
+                <TableViewRow height="100" width="62%" align="center">
+                	<Button id="button" onClick="login" title="Login" top="10" width="100%" height="88" />
+                </TableViewRow>
+                
+            </TableViewSection>
+            
+       </TableView>
+	
+	</Window>
+</Alloy>
