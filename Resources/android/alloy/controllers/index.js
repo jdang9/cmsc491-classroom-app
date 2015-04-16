@@ -8,18 +8,6 @@ function __processArg(obj, key) {
 }
 
 function Controller() {
-    function login() {
-        var username = $.text_username.value.toString({
-            color: "black"
-        });
-        var password = $.text_password.value.toString({
-            color: "black"
-        });
-        if ("admin" == username && "hunter" == password) {
-            var window = Alloy.createController("main").getView();
-            window.open();
-        } else alert("Incorrect password, please try again.");
-    }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "index";
     if (arguments[0]) {
@@ -35,7 +23,6 @@ function Controller() {
     }
     var $ = this;
     var exports = {};
-    var __defers = {};
     $.__views.index = Ti.UI.createWindow({
         backgroundColor: "white",
         layout: "vertical",
@@ -134,18 +121,35 @@ function Controller() {
         id: "__alloyId5"
     });
     $.__views.textFields.add($.__views.__alloyId5);
-    $.__views.button = Ti.UI.createButton({
+    $.__views.button_login = Ti.UI.createButton({
         backgroundColor: "#457AB1",
         color: "white",
         borderStyle: "Ti.UI.INPUT_BORDERSTYLE_ROUNDED",
-        id: "button",
+        id: "button_login",
         title: "Login",
         top: "10",
         width: "100%",
         height: "88"
     });
-    $.__views.__alloyId5.add($.__views.button);
-    login ? $.__views.button.addEventListener("click", login) : __defers["$.__views.button!click!login"] = true;
+    $.__views.__alloyId5.add($.__views.button_login);
+    $.__views.__alloyId6 = Ti.UI.createTableViewRow({
+        height: "100",
+        width: "62%",
+        align: "center",
+        id: "__alloyId6"
+    });
+    $.__views.textFields.add($.__views.__alloyId6);
+    $.__views.button_signup = Ti.UI.createButton({
+        backgroundColor: "#457AB1",
+        color: "white",
+        borderStyle: "Ti.UI.INPUT_BORDERSTYLE_ROUNDED",
+        id: "button_signup",
+        title: "Sign up",
+        top: "20",
+        width: "100%",
+        height: "88"
+    });
+    $.__views.__alloyId6.add($.__views.button_signup);
     $.__views.table = Ti.UI.createTableView({
         data: __alloyId0,
         id: "table",
@@ -154,8 +158,17 @@ function Controller() {
     $.__views.index.add($.__views.table);
     exports.destroy = function() {};
     _.extend($, $.__views);
+    $.text_username.value.toString();
+    $.text_password.value.toString();
+    $.button_signup.addEventListener("click", function() {
+        var signupPage = Alloy.createController("signup");
+        signupPage.getView();
+    });
+    $.button_login.addEventListener("click", function() {
+        Titanium.API.info("Login Button Clicked");
+        ("" == $.text_username.value || "" == $.text_password.value) && alert("Please fill out your username and password!");
+    });
     $.index.open();
-    __defers["$.__views.button!click!login"] && $.__views.button.addEventListener("click", login);
     _.extend($, exports);
 }
 

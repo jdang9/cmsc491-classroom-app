@@ -4,7 +4,7 @@
     <name>Classroom+</name>
     <version>1.0</version>
     <publisher>JDang</publisher>
-    <url>http://</url>
+    <url>https://7739880747b478b80484b2595e301fc5d2611b48.cloudapp.appcelerator.com</url>
     <description>undefined</description>
     <copyright>2015 by Anh Dang, Hunter Miller, and James Freund</copyright>
     <icon>appicon.png</icon>
@@ -53,9 +53,7 @@
         </splash>
         <theme>default</theme>
     </mobileweb>
-    <modules>
-        <module platform="commonjs">ti.cloud</module>
-    </modules>
+    <modules/>
     <deployment-targets>
         <target device="android">true</target>
         <target device="blackberry">false</target>

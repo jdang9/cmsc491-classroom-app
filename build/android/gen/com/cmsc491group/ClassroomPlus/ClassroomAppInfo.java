@@ -37,7 +37,7 @@ public final class ClassroomAppInfo implements ITiAppInfo
 	}
 
 	public String getUrl() {
-		return "http://";
+		return "https://7739880747b478b80484b2595e301fc5d2611b48.cloudapp.appcelerator.com";
 	}
 
 	public String getCopyright() {

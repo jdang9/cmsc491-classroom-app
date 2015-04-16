@@ -8,46 +8,16 @@ function __processArg(obj, key) {
 }
 
 function Controller() {
-    function doopen(evt) {
-        var activity = evt.source.getActivity();
-        activity.onCreateOptionsMenu = function(e) {
-            var item, menu;
-            menu = e.menu;
-            menu.clear();
-            switch (Alloy.Globals.currentTab) {
-              case 0:
-                item = e.menu.add({
-                    title: "Invite",
-                    showAsAction: Ti.Android.SHOW_AS_ACTION_ALWAYS,
-                    icon: Ti.Android.R.drawable.ic_menu_search
-                });
-                item.addEventListener("click", function() {
-                    $.win1.label.text = "You clicked the magnifying glass";
-                });
-                break;
-
-              case 1:
-                item1 = e.menu.add({
-                    title: "Share",
-                    showAsAction: Ti.Android.SHOW_AS_ACTION_ALWAYS,
-                    icon: Ti.Android.R.drawable.ic_menu_edit
-                });
-                item2 = e.menu.add({
-                    title: "Share",
-                    showAsAction: Ti.Android.SHOW_AS_ACTION_ALWAYS,
-                    icon: Ti.Android.R.drawable.ic_menu_add
-                });
-                item2.addEventListener("click", function() {
-                    $.win2.label.text = "You clicked the add class button";
-                });
-            }
-        };
-        Alloy.Globals.tabGroup.addEventListener("focus", function(evt) {
-            if ("undefined" != typeof evt.index) {
-                activity.invalidateOptionsMenu();
-                Alloy.Globals.currentTab = evt.index;
-            }
-        });
+    function login() {
+        var username = $.txtLogin.value.toString();
+        var password = $.txtPass.value.toString();
+        if ("admin" == username && "hunter" == password) {
+            var window = Alloy.createController("main").getView();
+            window.open();
+        } else alert("Incorrect password, please try again.");
+    }
+    function signup() {
+        alert("Function is coming!");
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "index";
@@ -65,74 +35,146 @@ function Controller() {
     var $ = this;
     var exports = {};
     var __defers = {};
-    var __alloyId0 = [];
-    $.__views.win1 = Alloy.createController("win1", {
-        id: "win1"
-    });
-    $.__views.__alloyId1 = Ti.UI.createTab({
-        window: $.__views.win1.getViewEx({
-            recurse: true
-        }),
-        title: "DashBoard",
-        id: "__alloyId1"
-    });
-    __alloyId0.push($.__views.__alloyId1);
-    $.__views.win2 = Alloy.createController("win2", {
-        id: "win2"
-    });
-    $.__views.__alloyId3 = Ti.UI.createTab({
-        window: $.__views.win2.getViewEx({
-            recurse: true
-        }),
-        title: "Info",
-        id: "__alloyId3"
-    });
-    __alloyId0.push($.__views.__alloyId3);
-    $.__views.win3 = Alloy.createController("win3", {
-        id: "win3"
-    });
-    $.__views.__alloyId5 = Ti.UI.createTab({
-        window: $.__views.win3.getViewEx({
-            recurse: true
-        }),
-        title: "Courses",
-        id: "__alloyId5"
-    });
-    __alloyId0.push($.__views.__alloyId5);
-    $.__views.win4 = Alloy.createController("win4", {
-        id: "win4"
-    });
-    $.__views.__alloyId7 = Ti.UI.createTab({
-        window: $.__views.win4.getViewEx({
-            recurse: true
-        }),
-        title: "Collaboration",
-        id: "__alloyId7"
-    });
-    __alloyId0.push($.__views.__alloyId7);
-    $.__views.win5 = Alloy.createController("win5", {
-        id: "win5"
-    });
-    $.__views.__alloyId9 = Ti.UI.createTab({
-        window: $.__views.win5.getViewEx({
-            recurse: true
-        }),
-        title: "Check-in",
-        id: "__alloyId9"
-    });
-    __alloyId0.push($.__views.__alloyId9);
-    $.__views.index = Ti.UI.createTabGroup({
-        tabs: __alloyId0,
+    $.__views.index = Ti.UI.createWindow({
+        backgroundColor: "white",
+        layout: "vertical",
         id: "index"
     });
     $.__views.index && $.addTopLevelView($.__views.index);
-    doopen ? $.__views.index.addEventListener("open", doopen) : __defers["$.__views.index!open!doopen"] = true;
+    var __alloyId0 = [];
+    $.__views.aboveLogo = Ti.UI.createTableViewSection({
+        separatorColor: "white",
+        divider: "white",
+        id: "aboveLogo"
+    });
+    __alloyId0.push($.__views.aboveLogo);
+    $.__views.__alloyId1 = Ti.UI.createTableViewRow({
+        height: "15%",
+        width: "100%",
+        id: "__alloyId1"
+    });
+    $.__views.aboveLogo.add($.__views.__alloyId1);
+    $.__views.logo = Ti.UI.createTableViewSection({
+        separatorColor: "white",
+        divider: "white",
+        id: "logo"
+    });
+    __alloyId0.push($.__views.logo);
+    $.__views.__alloyId2 = Ti.UI.createTableViewRow({
+        height: "300",
+        width: "100%",
+        id: "__alloyId2"
+    });
+    $.__views.logo.add($.__views.__alloyId2);
+    $.__views.image = Ti.UI.createImageView({
+        id: "image",
+        image: "https://i.imgur.com/NfLRcfN.png",
+        height: "100%",
+        width: "300"
+    });
+    $.__views.__alloyId2.add($.__views.image);
+    $.__views.textFields = Ti.UI.createTableViewSection({
+        separatorColor: "white",
+        divider: "white",
+        id: "textFields",
+        layout: "vertical"
+    });
+    __alloyId0.push($.__views.textFields);
+    $.__views.__alloyId3 = Ti.UI.createTableViewRow({
+        height: "80",
+        width: "62%",
+        align: "center",
+        id: "__alloyId3"
+    });
+    $.__views.textFields.add($.__views.__alloyId3);
+    $.__views.txtLogin = Ti.UI.createTextField({
+        textColor: "#FFFFFF",
+        textAlign: "center",
+        font: "Helvetica Neue Light",
+        borderStyle: "Ti.UI.INPUT_BORDERSTYLE_ROUNDED",
+        top: "10",
+        bottom: "10",
+        maxLength: "16",
+        id: "txtLogin",
+        hintText: "Email / Username",
+        paddingLeft: "100",
+        align: "center",
+        width: "100%",
+        height: "60"
+    });
+    $.__views.__alloyId3.add($.__views.txtLogin);
+    $.__views.__alloyId4 = Ti.UI.createTableViewRow({
+        height: "80",
+        width: "62%",
+        align: "center",
+        id: "__alloyId4"
+    });
+    $.__views.textFields.add($.__views.__alloyId4);
+    $.__views.txtPass = Ti.UI.createTextField({
+        textColor: "#FFFFFF",
+        textAlign: "center",
+        font: "Helvetica Neue Light",
+        borderStyle: "Ti.UI.INPUT_BORDERSTYLE_ROUNDED",
+        top: "10",
+        bottom: "10",
+        maxLength: "16",
+        id: "txtPass",
+        hintText: "Password",
+        passwordMask: "true",
+        paddingLeft: "100",
+        width: "100%",
+        height: "60"
+    });
+    $.__views.__alloyId4.add($.__views.txtPass);
+    $.__views.__alloyId5 = Ti.UI.createTableViewRow({
+        height: "100",
+        width: "62%",
+        align: "center",
+        id: "__alloyId5"
+    });
+    $.__views.textFields.add($.__views.__alloyId5);
+    $.__views.btnLogin = Ti.UI.createButton({
+        backgroundColor: "#457AB1",
+        color: "white",
+        borderStyle: "Ti.UI.INPUT_BORDERSTYLE_ROUNDED",
+        id: "btnLogin",
+        title: "Login",
+        top: "10",
+        width: "100%",
+        height: "88"
+    });
+    $.__views.__alloyId5.add($.__views.btnLogin);
+    login ? $.__views.btnLogin.addEventListener("click", login) : __defers["$.__views.btnLogin!click!login"] = true;
+    $.__views.__alloyId6 = Ti.UI.createTableViewRow({
+        height: "100",
+        width: "62%",
+        align: "center",
+        id: "__alloyId6"
+    });
+    $.__views.textFields.add($.__views.__alloyId6);
+    $.__views.btnSignup = Ti.UI.createButton({
+        backgroundColor: "#457AB1",
+        color: "white",
+        borderStyle: "Ti.UI.INPUT_BORDERSTYLE_ROUNDED",
+        id: "btnSignup",
+        title: "Sign up",
+        top: "20",
+        width: "100%",
+        height: "88"
+    });
+    $.__views.__alloyId6.add($.__views.btnSignup);
+    signup ? $.__views.btnSignup.addEventListener("click", signup) : __defers["$.__views.btnSignup!click!signup"] = true;
+    $.__views.table = Ti.UI.createTableView({
+        data: __alloyId0,
+        id: "table",
+        separatorColor: "white"
+    });
+    $.__views.index.add($.__views.table);
     exports.destroy = function() {};
     _.extend($, $.__views);
-    Alloy.Globals.tabGroup = $.index;
-    Alloy.Globals.currentTab = 0;
     $.index.open();
-    __defers["$.__views.index!open!doopen"] && $.__views.index.addEventListener("open", doopen);
+    __defers["$.__views.btnLogin!click!login"] && $.__views.btnLogin.addEventListener("click", login);
+    __defers["$.__views.btnSignup!click!signup"] && $.__views.btnSignup.addEventListener("click", signup);
     _.extend($, exports);
 }
 

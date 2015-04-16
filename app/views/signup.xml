@@ -1,0 +1,49 @@
+<Alloy>
+    <Window class="container">
+        <View id="signup" >
+            <TextField id="text_userSignup" value="Enter a user name" />
+            <TextField id="text_passSignup" passwordMask="true" value="Enter your password" />
+            <TextField id="text_passSignupConfirm" passwordMask="true" value="Re-enter your password" />
+            <Button id="newUserSubmit" title="Submit" />
+            <Button id="newUserCancel" title="Cancel" />
+        </View>
+    </Window>
+ 
+</Alloy>
+<!-- <Alloy>
+	
+	<Window class="container" layout="vertical">
+		
+		<TableView id="table" separatorColor="white">
+			
+			<TableViewSection id="aboveLogo">
+                <TableViewRow height="15%" width="100%"/>
+            </TableViewSection>
+            
+            <TableViewSection id="logo">
+            	
+                <TableViewRow height="300" width="100%">
+                	<ImageView id="image" image="https://i.imgur.com/NfLRcfN.png" height="100%" width="300" />
+                </TableViewRow>
+                
+            </TableViewSection>
+            
+            <TableViewSection id="textFields" layout="vertical">
+            	
+                <TableViewRow height="80" width="62%" align="center">
+                	<TextField id="text_signup" hintText="Email / Username" paddingLeft="100" align="center" width="100%" height="60" />
+                </TableViewRow>
+                
+                <TableViewRow height="80" width="62%" align="center">
+                	<TextField id="text_signPass" hintText="Password" passwordMask="true" paddingLeft="100" width="100%" height="60" />
+                </TableViewRow>
+                <TableViewRow height="100" width="62%" align="center">
+                	<Button id="button_signupSubmit" title="Sign up" top="20" width="100%" height="88" />
+                </TableViewRow>
+                
+            </TableViewSection>
+            
+       </TableView>
+	
+	</Window>
+</Alloy> -->

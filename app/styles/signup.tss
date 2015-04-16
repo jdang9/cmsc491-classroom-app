@@ -1,0 +1,35 @@
+"Window": {
+	backgroundColor:"white",
+	layout:"horizontal"
+}
+
+"Label": {
+	width: Ti.UI.SIZE,
+	height: Ti.UI.SIZE,
+	color: "orange"
+}
+
+".container":{
+	backgroundColor:"white"
+}
+
+"Button": {
+	backgroundColor:"#457AB1",
+	color:"white",
+	borderStyle:"Ti.UI.INPUT_BORDERSTYLE_ROUNDED"
+}
+
+"TextField": {
+	textColor:"#FFFFFF",
+	textAlign:"center",
+	font:"Helvetica Neue Light",
+	borderStyle:"Ti.UI.INPUT_BORDERSTYLE_ROUNDED",
+	top:"10",
+	bottom:"10",
+	maxLength:"16"
+}
+
+"TableViewSection": {
+	separatorColor:"white",
+	divider:"white"
+}

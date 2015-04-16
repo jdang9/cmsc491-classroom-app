@@ -27,7 +27,10 @@
                 </TableViewRow>
                 
                 <TableViewRow height="100" width="62%" align="center">
-                	<Button id="button" onClick="login" title="Login" top="10" width="100%" height="88" />
+                	<Button id="button_login" title="Login" top="10" width="100%" height="88" />
+                </TableViewRow>
+                <TableViewRow height="100" width="62%" align="center">
+                	<Button id="button_signup" title="Sign up" top="20" width="100%" height="88" />
                 </TableViewRow>
                 
             </TableViewSection>
