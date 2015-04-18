@@ -12,6 +12,17 @@ var win2 = Ti.UI.createWindow({		//Info
   	title: 'Your Profile'
 });
 
+var filename;		// global variableused to store filename url of profile picture
+var username;		// user data
+var firstname;		// user data
+var lastname;		// user data
+var email;			// user data
+var school;			// user data
+var major;			// user data
+var classification;	// user data
+var userID;			// user data
+var image;			// global variable used to store profile picture object
+
 /*
 var profileTableRow1 = Ti.UI.createTableViewRow({ height: "50%" });
 var profileTableRow2 = Ti.UI.createTableViewRow({ height: "25%" });
@@ -32,15 +43,8 @@ $.profileTableRow2.setData(profileTableRow2);
 $.profileTableRow3.setData(profileTableRow3);
 */
 
-var username;
-var firstname;
-var lastname;
-var email;
-var school;
-var major;
-var classification;
-var userID;
 
+// gets the user info needed to present data
 function getUserInfo(e) {
   Cloud.Users.showMe(function(e){
       if (e.success) {
@@ -52,18 +56,19 @@ function getUserInfo(e) {
           school = user.school;
           major = user.major;
           classification = user.classification;
-          userID = user.ID;
+          userID = user.id;
           
           
           $.username.text = "Username: " + user.username;
           $.firstname.text = "First Name: " + user.first_name;
           $.lastname.text = "Last Name: " + user.last_name;
           $.email.text = "Email: " + user.email;
+          $.userID.text = "User ID: " + user.id;
           
-          Ti.API.info(
-              'First Name: ' + user.first_name + '\n' +
-              'Last Name: ' + user.last_name + '\n' +
-              'Email: ' + user.email);
+          alert('Success:\n' +
+            'id: ' + user.id + '\n' +
+            'first name: ' + user.first_name + '\n' +
+            'last name: ' + user.last_name);
       } else {
           alert('Error:\n' +
               ((e.error && e.message) || JSON.stringify(e)));
@@ -71,10 +76,10 @@ function getUserInfo(e) {
   });
 }
 
+// sets the user info global variables
 getUserInfo();
 
-var image;
-
+// allows a user to upload their profile picture at any time
 function uploadPhoto(){
 Titanium.Media.openPhotoGallery({
     success: function(e){
@@ -85,6 +90,7 @@ Titanium.Media.openPhotoGallery({
 
            Cloud.Photos.create({
                 photo: image,
+                name: 'profile' + userID,
                 user_id: userID
             }, function(e){
                 if(e.success){
@@ -112,7 +118,7 @@ Titanium.Media.openPhotoGallery({
 });
 }
 
-var filename;
+// searches for your profile picture and sets it
 function searchPhoto() {
 	Cloud.Photos.search({
 	    user_id: userID
@@ -120,25 +126,37 @@ function searchPhoto() {
 	    if (e.success) {
 	        for (var i = 0; i < e.photos.length; i++) {
 	            var photo = e.photos[i];
-	            alert('id: ' + photo.id + '\n' +
+	            /*alert('id: ' + photo.id + '\n' +
 	                  'name: ' + photo.name + '\n' +
 	                  'filename: ' + photo.filename + '\n' +
 	                  'updated_at: ' + photo.updated_at + '\n' +
-	                  'url: ' + photo.urls.original);
-				alert($.profilePicture.image);
+	                  'url: ' + photo.urls.original + '\n' +
+	                  'userID: ' + photo.user_id);*/
 				filename = photo.urls.original;
-				
-				var imageV = Ti.UI.createImageView({
-					image:filename
-				});
-				
-				$.profileImage.add(imageV);
 	        }
+	        
+	        alert(filename);
+	        
+	        var pImage = Ti.UI.createImageView({
+				width:"50%",
+				height:"50%",
+				image:filename
+			});
+			
+			$.profileImage.add(pImage);
+	        
 	    } else {
 	        alert('Error:\n' +
 	            ((e.error && e.message) || JSON.stringify(e)));
+			filename = '/images/avatar.jpeg';
+			
+			var pImage = Ti.UI.createImageView({
+				width:"50%",
+				height:"50%",
+				image:filename
+			});
+			
+			$.profileImage.add(pImage);
 	    }
 	});
-	
-	$.profilePicture.image = filename;
 }

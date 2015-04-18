@@ -19,12 +19,13 @@ function Controller() {
                 school = user.school;
                 major = user.major;
                 classification = user.classification;
-                userID = user.ID;
+                userID = user.id;
                 $.username.text = "Username: " + user.username;
                 $.firstname.text = "First Name: " + user.first_name;
                 $.lastname.text = "Last Name: " + user.last_name;
                 $.email.text = "Email: " + user.email;
-                Ti.API.info("First Name: " + user.first_name + "\nLast Name: " + user.last_name + "\nEmail: " + user.email);
+                $.userID.text = "User ID: " + user.id;
+                alert("Success:\nid: " + user.id + "\nfirst name: " + user.first_name + "\nlast name: " + user.last_name);
             } else alert("Error:\n" + (e.error && e.message || JSON.stringify(e)));
         });
     }
@@ -36,6 +37,7 @@ function Controller() {
                     alert(image);
                     Cloud.Photos.create({
                         photo: image,
+                        name: "profile" + userID,
                         user_id: userID
                     }, function(e) {
                         if (e.success) {
@@ -59,18 +61,29 @@ function Controller() {
         Cloud.Photos.search({
             user_id: userID
         }, function(e) {
-            if (e.success) for (var i = 0; i < e.photos.length; i++) {
-                var photo = e.photos[i];
-                alert("id: " + photo.id + "\nname: " + photo.name + "\nfilename: " + photo.filename + "\nupdated_at: " + photo.updated_at + "\nurl: " + photo.urls.original);
-                alert($.profilePicture.image);
-                filename = photo.urls.original;
-                var imageV = Ti.UI.createImageView({
+            if (e.success) {
+                for (var i = 0; i < e.photos.length; i++) {
+                    var photo = e.photos[i];
+                    filename = photo.urls.original;
+                }
+                alert(filename);
+                var pImage = Ti.UI.createImageView({
+                    width: "50%",
+                    height: "50%",
                     image: filename
                 });
-                $.profileImage.add(imageV);
-            } else alert("Error:\n" + (e.error && e.message || JSON.stringify(e)));
+                $.profileImage.add(pImage);
+            } else {
+                alert("Error:\n" + (e.error && e.message || JSON.stringify(e)));
+                filename = "/images/avatar.jpeg";
+                var pImage = Ti.UI.createImageView({
+                    width: "50%",
+                    height: "50%",
+                    image: filename
+                });
+                $.profileImage.add(pImage);
+            }
         });
-        $.profilePicture.image = filename;
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "win2";
@@ -143,12 +156,6 @@ function Controller() {
     });
     $.__views.profileImage.add($.__views.upload);
     searchPhoto ? $.__views.upload.addEventListener("click", searchPhoto) : __defers["$.__views.upload!click!searchPhoto"] = true;
-    $.__views.profilePicture = Ti.UI.createImageView({
-        height: 140,
-        width: Ti.UI.SIZE,
-        id: "profilePicture"
-    });
-    $.__views.profileImage.add($.__views.profilePicture);
     $.__views.profileBasic = Ti.UI.createView({
         height: "100%",
         width: "50%",
@@ -210,6 +217,19 @@ function Controller() {
         id: "email"
     });
     $.__views.profileBasic.add($.__views.email);
+    $.__views.userID = Ti.UI.createLabel({
+        color: "#000",
+        font: {
+            fontSize: 12
+        },
+        height: 30,
+        top: 2,
+        left: 20,
+        width: Ti.UI.SIZE,
+        textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+        id: "userID"
+    });
+    $.__views.profileBasic.add($.__views.userID);
     $.__views.profileVertical = Ti.UI.createView({
         top: "50%",
         width: Ti.UI.SIZE,
@@ -272,6 +292,7 @@ function Controller() {
         layout: "vertical",
         title: "Your Profile"
     });
+    var filename;
     var username;
     var firstname;
     var lastname;
@@ -280,9 +301,8 @@ function Controller() {
     var major;
     var classification;
     var userID;
-    getUserInfo();
     var image;
-    var filename;
+    getUserInfo();
     __defers["$.__views.upload!click!uploadPhoto"] && $.__views.upload.addEventListener("click", uploadPhoto);
     __defers["$.__views.upload!click!searchPhoto"] && $.__views.upload.addEventListener("click", searchPhoto);
     _.extend($, exports);

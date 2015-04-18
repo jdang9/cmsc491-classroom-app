@@ -7,13 +7,13 @@
 						<Button id="upload" onClick="uploadPhoto">Upload image</Button>
 						<Button id="upload" onClick="searchPhoto">Search Photo</Button>
 						
-						<ImageView id="profilePicture"/>
 					</View>
 					<View id="profileBasic">
 						<Label class="LblTxt" id="username"></Label>
 						<Label class="LblTxt" id="firstname"></Label>
 						<Label class="LblTxt" id="lastname"></Label>
 						<Label class="LblTxt" id="email"></Label>
+						<Label class="LblTxt" id="userID"></Label>
 					</View>
 				</View>
 				<View id="profileVertical">
