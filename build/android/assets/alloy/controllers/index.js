@@ -98,7 +98,6 @@ function Controller() {
         }, function(e) {
             if (e.success) {
                 currentUser = e.users[0];
-                alert(currentUser);
                 Ti.App.Properties.setString("sessionid", e.meta.session_id);
                 $.text_username.hide();
                 $.text_password.hide();

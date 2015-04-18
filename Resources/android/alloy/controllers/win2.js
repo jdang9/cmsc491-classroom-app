@@ -8,6 +8,70 @@ function __processArg(obj, key) {
 }
 
 function Controller() {
+    function getUserInfo() {
+        Cloud.Users.showMe(function(e) {
+            if (e.success) {
+                user = e.users[0];
+                username = user.username;
+                firstname = user.first_name;
+                lastname = user.last_name;
+                email = user.email;
+                school = user.school;
+                major = user.major;
+                classification = user.classification;
+                userID = user.ID;
+                $.username.text = "Username: " + user.username;
+                $.firstname.text = "First Name: " + user.first_name;
+                $.lastname.text = "Last Name: " + user.last_name;
+                $.email.text = "Email: " + user.email;
+                Ti.API.info("First Name: " + user.first_name + "\nLast Name: " + user.last_name + "\nEmail: " + user.email);
+            } else alert("Error:\n" + (e.error && e.message || JSON.stringify(e)));
+        });
+    }
+    function uploadPhoto() {
+        Titanium.Media.openPhotoGallery({
+            success: function(e) {
+                if (e.mediaType == Ti.Media.MEDIA_TYPE_PHOTO) {
+                    image = e.media;
+                    alert(image);
+                    Cloud.Photos.create({
+                        photo: image,
+                        user_id: userID
+                    }, function(e) {
+                        if (e.success) {
+                            var photo = e.photos[0];
+                            alert("Success:\nid: " + photo.id + "\nfilename: " + photo.filename + "\nsize: " + photo.size, "updated_at: " + photo.updated_at);
+                        } else {
+                            alert("Error:\n" + (e.error && e.message || JSON.stringify(e)));
+                            alert("Code: " + e.code);
+                        }
+                    });
+                }
+            },
+            cancel: function() {},
+            error: function(err) {
+                alert("ERROR: " + err);
+            },
+            mediaTypes: [ Ti.Media.MEDIA_TYPE_PHOTO ]
+        });
+    }
+    function searchPhoto() {
+        Cloud.Photos.search({
+            user_id: userID
+        }, function(e) {
+            if (e.success) for (var i = 0; i < e.photos.length; i++) {
+                var photo = e.photos[i];
+                alert("id: " + photo.id + "\nname: " + photo.name + "\nfilename: " + photo.filename + "\nupdated_at: " + photo.updated_at + "\nurl: " + photo.urls.original);
+                alert($.profilePicture.image);
+                filename = photo.urls.original;
+                var imageV = Ti.UI.createImageView({
+                    image: filename
+                });
+                $.profileImage.add(imageV);
+            } else alert("Error:\n" + (e.error && e.message || JSON.stringify(e)));
+        });
+        $.profilePicture.image = filename;
+    }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "win2";
     if (arguments[0]) {
@@ -23,6 +87,7 @@ function Controller() {
     }
     var $ = this;
     var exports = {};
+    var __defers = {};
     $.__views.win2 = Ti.UI.createWindow({
         backgroundColor: "#fff",
         id: "win2"
@@ -48,29 +113,103 @@ function Controller() {
         width: "50%",
         pd: "10",
         backgroundColor: "red",
+        layout: "vertical",
         id: "profileImage"
     });
     $.__views.profileHorizontal.add($.__views.profileImage);
     $.__views.__alloyId27 = Ti.UI.createLabel({
         color: "#000",
+        font: {
+            fontSize: 12
+        },
+        height: 30,
+        top: 2,
+        left: 20,
+        width: Ti.UI.SIZE,
+        textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
         text: "Profile Image",
         id: "__alloyId27"
     });
     $.__views.profileImage.add($.__views.__alloyId27);
+    $.__views.upload = Ti.UI.createButton({
+        title: "Upload image",
+        id: "upload"
+    });
+    $.__views.profileImage.add($.__views.upload);
+    uploadPhoto ? $.__views.upload.addEventListener("click", uploadPhoto) : __defers["$.__views.upload!click!uploadPhoto"] = true;
+    $.__views.upload = Ti.UI.createButton({
+        title: "Search Photo",
+        id: "upload"
+    });
+    $.__views.profileImage.add($.__views.upload);
+    searchPhoto ? $.__views.upload.addEventListener("click", searchPhoto) : __defers["$.__views.upload!click!searchPhoto"] = true;
+    $.__views.profilePicture = Ti.UI.createImageView({
+        height: 140,
+        width: Ti.UI.SIZE,
+        id: "profilePicture"
+    });
+    $.__views.profileImage.add($.__views.profilePicture);
     $.__views.profileBasic = Ti.UI.createView({
         height: "100%",
         width: "50%",
         pd: "10",
         backgroundColor: "yellow",
+        layout: "vertical",
         id: "profileBasic"
     });
     $.__views.profileHorizontal.add($.__views.profileBasic);
-    $.__views.__alloyId28 = Ti.UI.createLabel({
+    $.__views.username = Ti.UI.createLabel({
         color: "#000",
-        text: "Profile Basic Info",
-        id: "__alloyId28"
+        font: {
+            fontSize: 12
+        },
+        height: 30,
+        top: 2,
+        left: 20,
+        width: Ti.UI.SIZE,
+        textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+        id: "username"
     });
-    $.__views.profileBasic.add($.__views.__alloyId28);
+    $.__views.profileBasic.add($.__views.username);
+    $.__views.firstname = Ti.UI.createLabel({
+        color: "#000",
+        font: {
+            fontSize: 12
+        },
+        height: 30,
+        top: 2,
+        left: 20,
+        width: Ti.UI.SIZE,
+        textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+        id: "firstname"
+    });
+    $.__views.profileBasic.add($.__views.firstname);
+    $.__views.lastname = Ti.UI.createLabel({
+        color: "#000",
+        font: {
+            fontSize: 12
+        },
+        height: 30,
+        top: 2,
+        left: 20,
+        width: Ti.UI.SIZE,
+        textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+        id: "lastname"
+    });
+    $.__views.profileBasic.add($.__views.lastname);
+    $.__views.email = Ti.UI.createLabel({
+        color: "#000",
+        font: {
+            fontSize: 12
+        },
+        height: 30,
+        top: 2,
+        left: 20,
+        width: Ti.UI.SIZE,
+        textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+        id: "email"
+    });
+    $.__views.profileBasic.add($.__views.email);
     $.__views.profileVertical = Ti.UI.createView({
         top: "50%",
         width: Ti.UI.SIZE,
@@ -87,12 +226,20 @@ function Controller() {
         id: "profileSpecific"
     });
     $.__views.profileVertical.add($.__views.profileSpecific);
-    $.__views.__alloyId29 = Ti.UI.createLabel({
+    $.__views.__alloyId28 = Ti.UI.createLabel({
         color: "#000",
+        font: {
+            fontSize: 12
+        },
+        height: 30,
+        top: 2,
+        left: 20,
+        width: Ti.UI.SIZE,
+        textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
         text: "Profile Specific Info",
-        id: "__alloyId29"
+        id: "__alloyId28"
     });
-    $.__views.profileSpecific.add($.__views.__alloyId29);
+    $.__views.profileSpecific.add($.__views.__alloyId28);
     $.__views.profileClasses = Ti.UI.createView({
         height: "50%",
         width: "100%",
@@ -101,14 +248,23 @@ function Controller() {
         id: "profileClasses"
     });
     $.__views.profileVertical.add($.__views.profileClasses);
-    $.__views.__alloyId30 = Ti.UI.createLabel({
+    $.__views.__alloyId29 = Ti.UI.createLabel({
         color: "#000",
+        font: {
+            fontSize: 12
+        },
+        height: 30,
+        top: 2,
+        left: 20,
+        width: Ti.UI.SIZE,
+        textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
         text: "Classes",
-        id: "__alloyId30"
+        id: "__alloyId29"
     });
-    $.__views.profileClasses.add($.__views.__alloyId30);
+    $.__views.profileClasses.add($.__views.__alloyId29);
     exports.destroy = function() {};
     _.extend($, $.__views);
+    var Cloud = require("ti.cloud");
     Ti.UI.createWindow({
         backgroundColor: "white",
         exitOnClose: true,
@@ -116,6 +272,19 @@ function Controller() {
         layout: "vertical",
         title: "Your Profile"
     });
+    var username;
+    var firstname;
+    var lastname;
+    var email;
+    var school;
+    var major;
+    var classification;
+    var userID;
+    getUserInfo();
+    var image;
+    var filename;
+    __defers["$.__views.upload!click!uploadPhoto"] && $.__views.upload.addEventListener("click", uploadPhoto);
+    __defers["$.__views.upload!click!searchPhoto"] && $.__views.upload.addEventListener("click", searchPhoto);
     _.extend($, exports);
 }
 

@@ -6,9 +6,30 @@
 	color: "#000"
 }
 
+".Lbl" : {
+	height:25,
+	color: "#606060",
+	font: {fontSize: 12},
+	shadowOffset: 1,
+	shadowColor: "#363636"
+},
+".LblTxt":{
+	color: "#000",
+	font: { fontSize:12 },
+	height: 30, 
+	top: 2,
+	left: 20,
+	width: Ti.UI.SIZE,
+	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT
+},
+
 "#scrollView" : {
 	width:Ti.UI.SIZE,
 	height:"50%"
+},
+"#profilePicture" : {
+	height:140,
+	width:Ti.UI.SIZE
 },
 "#profileContainer" : {
 	top:0,
@@ -31,13 +52,15 @@
 	height:"100%",
 	width:"50%",
 	pd:"10",
-	backgroundColor:"red"
+	backgroundColor:"red",
+	layout: "vertical"
 }
 "#profileBasic" : {
 	height:"100%",
 	width:"50%",
 	pd:"10",
-	backgroundColor:"yellow"
+	backgroundColor:"yellow",
+	layout: "vertical"
 }
 "#profileSpecific" : {
 	height:"50%",

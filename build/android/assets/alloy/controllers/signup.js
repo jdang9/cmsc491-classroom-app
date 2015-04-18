@@ -41,8 +41,9 @@ function Controller() {
             classification: $.classification_create.value
         }, function(e) {
             if (e.success) {
-                var user = e.users[0];
-                alert("Success:\nid: " + user.id + "\nsessionId: " + Cloud.sessionId + "\n");
+                {
+                    e.users[0];
+                }
                 var window = Alloy.createController("main").getView();
                 window.open;
             } else alert("Error:\n" + (e.error && e.message || JSON.stringify(e)));

@@ -161,9 +161,6 @@ function createClick() {
 	}, function (e) {
 	    if (e.success) {
 	        var user = e.users[0];
-	        alert('Success:\n' +
-	        'id: ' + user.id + '\n' +
-	        'sessionId: ' + Cloud.sessionId + '\n');
 	        var window = Alloy.createController("main").getView();
 	        window.open;
 	} else {
