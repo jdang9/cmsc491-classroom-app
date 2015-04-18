@@ -6,12 +6,59 @@
 	color: "#000"
 }
 
-"#weekAtGlance": {
-	// title: "Week At a Glance",
-	backgroundColor: "#6699CC",
-	color: "white",
-	height: Ti.UI.SIZE,
-	width: Ti.UI.SIZE,
-	top: '85%',
-	bottom: '50dp'
+"#scrollView" : {
+	width:Ti.UI.SIZE,
+	height:"50%"
+},
+"#profileContainer" : {
+	top:0,
+	width:Ti.UI.SIZE,
+	height:Ti.UI.SIZE,
+},
+"#profileHorizontal" : {
+	top:0,
+	width:Ti.UI.SIZE,
+	height:"50%",
+	layout: "horizontal"
+},
+"#profileVertical" : {
+	top:"50%",
+	width:Ti.UI.SIZE,
+	height:"50%",
+	layout: "vertical"
+},
+"#profileImage" : {
+	height:"100%",
+	width:"50%",
+	pd:"10",
+	backgroundColor:"red"
 }
+"#profileBasic" : {
+	height:"100%",
+	width:"50%",
+	pd:"10",
+	backgroundColor:"yellow"
+}
+"#profileSpecific" : {
+	height:"50%",
+	width:"100%",
+	pd:"10",
+	backgroundColor:"green"
+}
+"#profileClasses" : {
+	height:"50%",
+	width:"100%",
+	pd:"10",
+	backgroundColor:"blue"
+},
+".loginTxt" : {
+	color: "#fff",
+	height: 50,
+	left: 20,
+	right: 20,
+	backgroundColor: "#2D3442",
+	paddingLeft:15,
+	autocapitalize:false,
+	autocorrect:false,
+	borderWidth: 0
+},

@@ -1,10 +1,10 @@
 {
-	"target": "emulator",
-	"deployType": "development",
+	"target": "device",
+	"deployType": "test",
 	"classname": "Classroom",
-	"platformPath": "/Users/JDang/Library/Application Support/Titanium/mobilesdk/osx/3.5.1.GA/android",
-	"modulesHash": "d41d8cd98f00b204e9800998ecf8427e",
-	"modulesManifestHash": "d41d8cd98f00b204e9800998ecf8427e",
+	"platformPath": "C:\\ProgramData\\Titanium\\mobilesdk\\win32\\3.5.1.GA\\android",
+	"modulesHash": "7fb655db1d51a26b74a2778ab4a02a6b",
+	"modulesManifestHash": "2ae63cf6e924be792a83907a44fce00b",
 	"modulesNativeHash": "d41d8cd98f00b204e9800998ecf8427e",
 	"modulesBindingsHash": "d41d8cd98f00b204e9800998ecf8427e",
 	"gitHash": "96875c9",
@@ -21,12 +21,12 @@
 	"fullscreen": false,
 	"skipJSMinification": true,
 	"mergeCustomAndroidManifest": false,
-	"encryptJS": false,
+	"encryptJS": true,
 	"minSDK": 14,
 	"targetSDK": 16,
-	"propertiesHash": "29f739a58f978a8021828a195a9e0576",
+	"propertiesHash": "f437154fdf1222a88b02919de047aa60",
 	"activitiesHash": "d41d8cd98f00b204e9800998ecf8427e",
 	"servicesHash": "d41d8cd98f00b204e9800998ecf8427e",
 	"jssFilesHash": "d41d8cd98f00b204e9800998ecf8427e",
-	"jarLibHash": "c50199d4ed8223368fdf45d9e0e3371a"
+	"jarLibHash": "b8c2972330785257314827ef005a493b"
 }

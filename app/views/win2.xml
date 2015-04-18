@@ -1,6 +1,23 @@
 <Alloy>
 	<Window class="container">
-		<Label id="label">This is Info</Label>
-		<Button id="weekAtGlance" onClick="doClick">Week At a Glance</Button>
+		<View id="profileContainer">
+				<View id="profileHorizontal">
+					<View id="profileImage">
+						<Label>Profile Image</Label>
+					</View>
+					<View id="profileBasic">
+						<Label>Profile Basic Info</Label>
+					</View>
+				</View>
+				<View id="profileVertical">
+					<View id="profileSpecific">
+						<Label>Profile Specific Info</Label>
+					</View>
+					<View id="profileClasses">
+						<Label>Classes</Label>
+					</View>
+				</View>
+		</View>
+		
 	</Window>
 </Alloy>

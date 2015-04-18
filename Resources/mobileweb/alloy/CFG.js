@@ -1,0 +1,1 @@
+module.exports={"dependencies":{"com.appcelerator.login":"2.1"}};
