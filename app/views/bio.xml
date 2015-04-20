@@ -2,7 +2,7 @@
 	<Window class="container">
 		<View id="profileContainer">
 			<View id="bioChange">
-				<TextField class="content_text" id="bioTextField" hintText="Your Bio Goes Here...."></TextField>
+				<TextArea id="bioTextField" />
 				<TableView class="tableView">
 					<TableViewRow id="row" layout="horizontal">
 						<Button id="submitBio" onClick="submit">Submit</Button>

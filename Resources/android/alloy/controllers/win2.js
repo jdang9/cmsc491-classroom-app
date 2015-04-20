@@ -183,13 +183,59 @@ function Controller() {
                     title: user.custom_fields.userBio,
                     textAlign: "left",
                     font: {
-                        fontSize: 20
+                        fontSize: 14
                     },
                     textColor: "white"
                 });
                 $.bioText.appendRow(row);
             } else alert("Error:\n" + (e.error && e.message || JSON.stringify(e)));
         });
+    }
+    function getCourses() {
+        var url = "http://jamesfreund.com/mobile/getThings.php";
+        var client = Ti.Network.createHTTPClient({
+            onload: function() {
+                var json = JSON.parse(this.responseText);
+                if (json.courses) for (var i = 0; i < json.courses.length; i++) {
+                    var row = Ti.UI.createTableViewRow({
+                        textAlign: "center",
+                        border: 10,
+                        borderColor: "red",
+                        id: json.courses[i].id
+                    });
+                    var newView = Ti.UI.createView({
+                        layout: "horizontal"
+                    });
+                    var labelOne = Ti.UI.createLabel({
+                        text: " " + json.courses[i].courseNumber,
+                        width: "15%",
+                        height: "auto",
+                        font: {
+                            fontSize: 20
+                        }
+                    });
+                    var labelTwo = Ti.UI.createLabel({
+                        text: "|	" + json.courses[i].courseName,
+                        width: "85%",
+                        height: "auto",
+                        font: {
+                            fontSize: 20
+                        }
+                    });
+                    newView.add(labelOne);
+                    newView.add(labelTwo);
+                    row.add(newView);
+                    $.courseList.appendRow(row);
+                }
+            },
+            onerror: function(e) {
+                Ti.API.debug(e.error);
+                alert("error");
+            },
+            timeout: 55e3
+        });
+        client.open("GET", url, true);
+        client.send();
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "win2";
@@ -297,6 +343,14 @@ function Controller() {
         id: "__alloyId28"
     });
     $.__views.__alloyId27.add($.__views.__alloyId28);
+    $.__views.__alloyId29 = Ti.UI.createView({
+        height: "80%",
+        width: "80%",
+        backgroundColor: "#2D3442",
+        layout: "vertical",
+        id: "__alloyId29"
+    });
+    $.__views.profileBasic.add($.__views.__alloyId29);
     $.__views.username = Ti.UI.createLabel({
         color: "#fff",
         font: {
@@ -307,9 +361,10 @@ function Controller() {
         left: 20,
         width: Ti.UI.SIZE,
         textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+        layout: "vertical",
         id: "username"
     });
-    $.__views.profileBasic.add($.__views.username);
+    $.__views.__alloyId29.add($.__views.username);
     $.__views.firstname = Ti.UI.createLabel({
         color: "#fff",
         font: {
@@ -320,9 +375,10 @@ function Controller() {
         left: 20,
         width: Ti.UI.SIZE,
         textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+        layout: "vertical",
         id: "firstname"
     });
-    $.__views.profileBasic.add($.__views.firstname);
+    $.__views.__alloyId29.add($.__views.firstname);
     $.__views.lastname = Ti.UI.createLabel({
         color: "#fff",
         font: {
@@ -333,9 +389,10 @@ function Controller() {
         left: 20,
         width: Ti.UI.SIZE,
         textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+        layout: "vertical",
         id: "lastname"
     });
-    $.__views.profileBasic.add($.__views.lastname);
+    $.__views.__alloyId29.add($.__views.lastname);
     $.__views.email = Ti.UI.createLabel({
         color: "#fff",
         font: {
@@ -346,9 +403,10 @@ function Controller() {
         left: 20,
         width: Ti.UI.SIZE,
         textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+        layout: "vertical",
         id: "email"
     });
-    $.__views.profileBasic.add($.__views.email);
+    $.__views.__alloyId29.add($.__views.email);
     $.__views.userID = Ti.UI.createLabel({
         color: "#fff",
         font: {
@@ -359,9 +417,10 @@ function Controller() {
         left: 20,
         width: Ti.UI.SIZE,
         textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+        layout: "vertical",
         id: "userID"
     });
-    $.__views.profileBasic.add($.__views.userID);
+    $.__views.__alloyId29.add($.__views.userID);
     $.__views.profileVertical = Ti.UI.createView({
         top: "50%",
         width: Ti.UI.SIZE,
@@ -378,13 +437,13 @@ function Controller() {
         id: "profileSpecific"
     });
     $.__views.profileVertical.add($.__views.profileSpecific);
-    $.__views.__alloyId29 = Ti.UI.createView({
+    $.__views.__alloyId30 = Ti.UI.createView({
         height: "15%",
         width: Ti.UI.FILL,
-        id: "__alloyId29"
+        id: "__alloyId30"
     });
-    $.__views.profileSpecific.add($.__views.__alloyId29);
-    $.__views.__alloyId30 = Ti.UI.createLabel({
+    $.__views.profileSpecific.add($.__views.__alloyId30);
+    $.__views.__alloyId31 = Ti.UI.createLabel({
         color: "#fff",
         height: 25,
         font: {
@@ -395,12 +454,12 @@ function Controller() {
         width: Ti.UI.SIZE,
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
         text: "Profile Specific Info",
-        id: "__alloyId30"
+        id: "__alloyId31"
     });
-    $.__views.__alloyId29.add($.__views.__alloyId30);
+    $.__views.__alloyId30.add($.__views.__alloyId31);
     $.__views.specificProfile = Ti.UI.createView({
         height: "85%",
-        width: Ti.UI.FILL,
+        width: "80%",
         id: "specificProfile"
     });
     $.__views.profileSpecific.add($.__views.specificProfile);
@@ -408,6 +467,8 @@ function Controller() {
         text: "white",
         height: Ti.UI.SIZE,
         width: "80%",
+        left: 0,
+        backgroundColor: "#2D3442",
         id: "bioText"
     });
     $.__views.specificProfile.add($.__views.bioText);
@@ -419,13 +480,13 @@ function Controller() {
         id: "profileClasses"
     });
     $.__views.profileVertical.add($.__views.profileClasses);
-    $.__views.__alloyId31 = Ti.UI.createView({
+    $.__views.__alloyId32 = Ti.UI.createView({
         height: "15%",
         width: Ti.UI.FILL,
-        id: "__alloyId31"
+        id: "__alloyId32"
     });
-    $.__views.profileClasses.add($.__views.__alloyId31);
-    $.__views.__alloyId32 = Ti.UI.createLabel({
+    $.__views.profileClasses.add($.__views.__alloyId32);
+    $.__views.__alloyId33 = Ti.UI.createLabel({
         color: "#fff",
         height: 25,
         font: {
@@ -436,9 +497,21 @@ function Controller() {
         width: Ti.UI.SIZE,
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
         text: "Classes",
-        id: "__alloyId32"
+        id: "__alloyId33"
     });
-    $.__views.__alloyId31.add($.__views.__alloyId32);
+    $.__views.__alloyId32.add($.__views.__alloyId33);
+    $.__views.__alloyId34 = Ti.UI.createView({
+        height: "80%",
+        width: "80%",
+        backgroundColor: "#2D3442",
+        layout: "vertical",
+        id: "__alloyId34"
+    });
+    $.__views.profileClasses.add($.__views.__alloyId34);
+    $.__views.courseList = Ti.UI.createTableView({
+        id: "courseList"
+    });
+    $.__views.__alloyId34.add($.__views.courseList);
     exports.destroy = function() {};
     _.extend($, $.__views);
     Alloy.Globals.response = "";
@@ -454,6 +527,7 @@ function Controller() {
     init();
     addBioButton();
     updateUserBio();
+    getCourses();
     _.extend($, exports);
 }
 

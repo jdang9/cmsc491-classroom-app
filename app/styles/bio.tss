@@ -1,0 +1,5 @@
+"#bioTextField" : {
+	height: "20%",
+	width: "60%",
+	hintText: 'Enter Bio Here'
+}

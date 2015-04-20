@@ -53,9 +53,11 @@ function Controller() {
         id: "bioChange"
     });
     $.__views.profileContainer.add($.__views.bioChange);
-    $.__views.bioTextField = Ti.UI.createTextField({
-        id: "bioTextField",
-        hintText: "Your Bio Goes Here...."
+    $.__views.bioTextField = Ti.UI.createTextArea({
+        height: "20%",
+        width: "60%",
+        hintText: "Enter Bio Here",
+        id: "bioTextField"
     });
     $.__views.bioChange.add($.__views.bioTextField);
     var __alloyId1 = [];

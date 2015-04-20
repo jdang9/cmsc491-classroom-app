@@ -30,7 +30,8 @@
 	top: 2,
 	left: 20,
 	width: Ti.UI.SIZE,
-	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT
+	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+	layout: 'vertical'
 },
 ".button" : {
 	height:44,
@@ -106,6 +107,18 @@
 	//backgroundColor:"yellow",
 	layout: "vertical"
 },
+".restOfBasic" : {
+	height:"80%",
+	width:'80%',
+	backgroundColor:"#2D3442",
+	layout: 'vertical'
+},
+".restOfClasses" : {
+	height:"80%",
+	width:'80%',
+	backgroundColor:"#2D3442",
+	layout: 'vertical'
+},
 "#profileSpecific" : {
 	height:"50%",
 	width:"100%",
@@ -133,13 +146,16 @@
 },
 "#specificProfile": {
 	height:'85%',
-	width:Ti.UI.FILL
+	width:'80%'
 },
 "#bioText" : {
 	text: "white",
 	height: Ti.UI.SIZE,
 	width: '80%',
+	left:0,
+	backgroundColor:"#2D3442"
 },
 "#btnRight": {
-	width:100
+	right:0,
+	width:'15%'
 }

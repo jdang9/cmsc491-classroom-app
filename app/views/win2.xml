@@ -19,11 +19,13 @@
 						<View class="viewTitle">
 							<Label class="Title">Basic Info</Label>
 						</View>
-						<Label class="LblTxt" id="username"></Label>
-						<Label class="LblTxt" id="firstname"></Label>
-						<Label class="LblTxt" id="lastname"></Label>
-						<Label class="LblTxt" id="email"></Label>
-						<Label class="LblTxt" id="userID"></Label>
+						<View class="restOfBasic">
+							<Label class="LblTxt" id="username"></Label>
+							<Label class="LblTxt" id="firstname"></Label>
+							<Label class="LblTxt" id="lastname"></Label>
+							<Label class="LblTxt" id="email"></Label>
+							<Label class="LblTxt" id="userID"></Label>
+						</View>
 					</View>
 				</View>
 				<View id="profileVertical">
@@ -39,6 +41,9 @@
 					<View id="profileClasses">
 						<View class="viewTitle">
 							<Label class="Title">Classes</Label>
+						</View>
+						<View class="restOfClasses">
+							<TableView id="courseList" />
 						</View>
 					</View>
 				</View>
