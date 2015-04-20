@@ -48,13 +48,13 @@
 },
 "#loginContainer" : {
 	backgroundColor: "#141925",
-	width:319,
-	height:164,
+	width:Ti.UI.FILL,
+	height:Ti.UI.FILL,
 	layout:"vertical"
 },
 "#bodyContainer" : {
 	top:0,
-	height:Ti.UI.SIZE
+	height:Ti.UI.FILL
 },
 "#loginView" : {
 	top:0,
@@ -72,6 +72,7 @@
 	top:0
 },
 "#createAccountView" : {
+	pd:20,
 	height: Ti.UI.SIZE,
 	width: Ti.UI.FILL,
 	layout: 'vertical',

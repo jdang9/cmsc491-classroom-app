@@ -24,12 +24,6 @@
 							<TextField class="loginTxt" id="first_name"/>
 							<Label class="loginLblTxt">Last Name</Label>
 							<TextField class="loginTxt" id="last_name"/>
-							<Label class="loginLblTxt">School</Label>
-							<TextField class="loginTxt" id="school_create"/>
-							<Label class="loginLblTxt">Major</Label>
-							<TextField class="loginTxt" id="major_create"/>
-							<Label class="loginLblTxt">Classification</Label>
-							<TextField class="loginTxt" id="classification_create"/>
 							<View class="controlContainer">
 								<View class="button" id="emailBtn" onClick="createClick">
 									<Label id="resetLbl" class="buttonLabel">Create Account</Label>

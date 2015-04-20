@@ -62,3 +62,4 @@ tabGroup.addTab(tab2);
 
 // open tab group
 tabGroup.open();
+

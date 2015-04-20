@@ -1,4 +1,4 @@
-ts	1429238967563
+ts	1429480051100
 Default-Landscape.png	513333
 Default-Portrait.png	76153
 Default.png	110858
@@ -9,25 +9,31 @@ alloy
 	constants.js	6654
 	controllers
 		BaseController.js	7259
+		Collab
+			CreatePost.js	4126
+			ViewPost.js	5835
 		accounts.js	3813
-		index.js	2132
-		main.js	4643
-		signup.js	6410
-		win1.js	1355
-		win2.js	2218
-		win3.js	1277
-		win4.js	1254
-		win5.js	1246
+		index.js	14690
+		main.js	4886
+		signup.js	10481
+		win1.js	1381
+		win2.js	12798
+		win3.js	1336
+		win4.js	2923
+		win5.js	1328
 	styles
+		Collab
+			CreatePost.js	2351
+			ViewPost.js	462
 		accounts.js	20
-		index.js	801
-		main.js	301
-		signup.js	815
-		win1.js	183
-		win2.js	352
-		win3.js	20
-		win4.js	20
-		win5.js	20
+		index.js	3833
+		main.js	377
+		signup.js	4261
+		win1.js	200
+		win2.js	2559
+		win3.js	126
+		win4.js	293
+		win5.js	200
 	sync
 		localStorage.js	1913
 		properties.js	1848
@@ -35,11 +41,6 @@ alloy
 	underscore.js	41425
 	widget.js	1455
 	widgets
-		com.appcelerator.login
-			controllers
-				widget.js	16765
-			styles
-				widget.js	5354
 alloy.js	10406
 app.js	103
 appicon.png	18020
@@ -50,13 +51,19 @@ apple-touch-icon-72x72-precomposed.png	7641
 apple-touch-icon-precomposed.png	5449
 favicon.ico	849
 images
-	com.appcelerator.login
-		facebook-btn-loading.png	6071
-		facebook-btn.png	12480
-		header.png	12761
-		header@2x.png	19138
-		help-btn.png	1279
-		help-btn@2x.png	3494
+	avatar.jpg	14897
+	check.png	3842
+	collab.png	4611
+	courses.png	3271
+	dash.png	3629
+	facebook-btn-loading.png	6071
+	facebook-btn.png	12480
+	header.png	12396
+	header@2x.png	19138
+	header_logo.png	33334
+	help-btn.png	1279
+	help-btn@2x.png	3494
+	profile.png	3896
 iphone
 	Default-568h@2x.png	502634
 	Default-667h@2x.png	513122

@@ -44,7 +44,7 @@ function forgotClick(e) {
 		$.passworReminderView.animate({ opacity:1.0, duration:250 });
 		OS_BLACKBERRY && ($.passworReminderView.opacity=1.0) && ($.passworReminderView.visible=true);
 			
-		$.loginContainer.height = 500;
+		$.loginContainer.height = '100%';
 	});
 }
 
@@ -56,7 +56,7 @@ function forgotClick(e) {
 		$.createAccountView.animate({ opacity:1.0, duration:250 });
 		OS_BLACKBERRY && ($.createAccountView.opacity=1.0) && ($.createAccountView.visible=true);
 			
-		$.loginContainer.height = 500;
+		$.loginContainer.height = '100%';
 	});
 }*/
 
@@ -90,7 +90,7 @@ function cancelAccountClick(e) {
 			
 		OS_BLACKBERRY && ($.loginView.opacity=1.0) && ($.loginView.visible=true);
 			
-		$.loginContainer.height = 500; 
+		$.loginContainer.height = '100%'; 
 	});
 
 	resetEmailForm();
@@ -104,7 +104,7 @@ function cancelClick(e) {
 			
 		OS_BLACKBERRY && ($.loginView.opacity=1.0) && ($.loginView.visible=true);
 			
-		$.loginContainer.height = 500; 
+		$.loginContainer.height = '100%'; 
 	});
 
 	resetEmailForm();
@@ -171,16 +171,16 @@ $.open = function(){
 		setTimeout(function() {
 				// timeout only to delay initial animation (fake start)
 				$.loginContainer.animate({
-					height: 500,
+					height: '100%',
 					duration: 250
 				}, function() {
 					$.loginView.animate({ opacity:1.0, duration:250 });
 					//$.divider.animate({ opacity:1.0, duration: 250 });
-					$.loginContainer.height = 500;
+					$.loginContainer.height = '100%';
 				});
 		}, 1000);
 	} else {
-		$.loginContainer.height  = 500; 
+		$.loginContainer.height  = '100%'; 
 		$.loginView.opacity = 1.0;
 		//$.divider.opacity =1.0;
 	}

@@ -1,0 +1,15 @@
+<Alloy>
+	<Window>
+		<View id="view1">
+			<TableView id="tableView1" scrollable="true">
+				
+			</TableView>
+		</View>
+		<TableView>
+			<TableViewRow id="tableView2" layout="vertical">
+				<TextArea id="commentTextField" />
+				<Button id="postComment" onClick="postComment">Post</Button>
+			</TableViewRow>
+		</TableView>
+	</Window>
+</Alloy>

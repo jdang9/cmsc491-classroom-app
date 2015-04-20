@@ -48,17 +48,17 @@
 },
 "#loginContainer" : {
 	backgroundColor: "#141925",
-	width:319,
-	height:164,
+	width:Ti.UI.FILL,
+	height:Ti.UI.FILL,
 	layout:"vertical"
 },
 "#bodyContainer" : {
 	top:0,
-	height:Ti.UI.SIZE
+	height:Ti.UI.FILL
 },
 "#loginView" : {
 	top:0,
-	height: Ti.UI.SIZE,
+	height: Ti.UI.FILL,
 	width: Ti.UI.FILL,
 	layout: "vertical",
 	opacity:0.0
@@ -78,7 +78,7 @@
 	opacity: 0
 },
 "#header" : {
-	height:140,
+	height:300,
 	width:Ti.UI.SIZE,
 	top:20,
 	image:"images/header.png"

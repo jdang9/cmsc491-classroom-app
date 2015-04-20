@@ -44,7 +44,7 @@ $.hideActivityIndicator = function(){
 		$.createAccountView.animate({ opacity:1.0, duration:250 });
 		OS_BLACKBERRY && ($.createAccountView.opacity=1.0) && ($.createAccountView.visible=true);
 			
-		$.loginContainer.height = 500;
+		$.loginContainer.height = '100%';
 	});
 }*/
 
@@ -122,16 +122,16 @@ $.open = function(){
 		setTimeout(function() {
 				// timeout only to delay initial animation (fake start)
 				$.loginContainer.animate({
-					height: 500,
+					height: '100%',
 					duration: 250
 				}, function() {
 					$.createAccountView.animate({ opacity:1.0, duration:250 });
 					//$.divider.animate({ opacity:1.0, duration: 250 });
-					$.loginContainer.height = 500;
+					$.loginContainer.height = '100%';
 				});
 		}, 1000);
 	} else {
-		$.loginContainer.height  = 500; 
+		$.loginContainer.height  = '100%'; 
 		$.createAccountView.opacity = 1.0;
 		//$.divider.opacity =1.0;
 	}
@@ -154,9 +154,6 @@ function createClick() {
 	email: $.email_create.value,
 	first_name: $.first_name.value,
 	last_name: $.last_name.value,
-	school: $.school_create.value,
-	major: $.major_create.value,
-	classification: $.classification_create.value
 	
 	}, function (e) {
 	    if (e.success) {

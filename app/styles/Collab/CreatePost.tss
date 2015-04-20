@@ -1,0 +1,118 @@
+".loginLbl" : {
+	height:25,
+	color: "#606060",
+	font: {fontSize: 12},
+	shadowOffset: 1,
+	shadowColor: "#363636"
+},
+".loginLblTxt":{
+	color: "#fff",
+	height: 30, 
+	top: 10,
+	left: 20,
+	width: 50,
+},
+".loginLblTxt[platform=ios]":{
+	color: "#fff",
+},
+".titleTxt" : {
+	color: "#fff",
+	height: 50,
+	width: 100,
+	align: "center",
+	backgroundColor: "#2D3442",
+	paddingLeft:15,
+	autocapitalize:false,
+	autocorrect:false,
+	borderWidth: 0
+},
+".contentTxt" : {
+	color: "#fff",
+	height: 300,
+	width: "80%",
+	align: "center",
+	backgroundColor: "#2D3442",
+	paddingLeft: 15,
+	autocapitalize:false,
+	autocorrect:false,
+	borderWidth: 0
+},
+".button" : {
+	height:44,
+	top:0,
+	backgroundColor: "#5A86AF",
+	borderRadius: 5
+},
+".buttonLabel" : {
+	color:"#fff",
+	font:{fontSize:14},
+	textAlign:"center",
+	height:Ti.UI.SIZE,
+	width:Ti.UI.SIZE
+},
+"#wrapper" : {
+	backgroundColor: "#000",
+	height: Ti.UI.FILL,
+	width: Ti.UI.FILL,
+  	navBarHidden: true
+},
+"#loginContainer" : {
+	backgroundColor: "#141925",
+	width:319,
+	height:164,
+	layout:"vertical"
+},
+"#bodyContainer" : {
+	top:0,
+	height:Ti.UI.SIZE
+},
+"#loginView" : {
+	top:0,
+	height: Ti.UI.SIZE,
+	width: Ti.UI.FILL,
+	layout: "vertical",
+	opacity:0.0
+},
+"#passworReminderView" : {
+	height: Ti.UI.SIZE,
+	width: Ti.UI.FILL,
+	layout: "vertical",
+	opacity: 0,
+	visible: false,
+	top:0
+},
+"#createAccountView" : {
+	height: Ti.UI.SIZE,
+	width: Ti.UI.FILL,
+	layout: 'vertical',
+	opacity: 1
+},
+"#accountForm" : {
+	height: Ti.UI.SIZE,
+	width: Ti.UI.FILL,
+	layout: 'vertical',
+	opacity: 1
+},
+"#header" : {
+	height:140,
+	width:Ti.UI.SIZE,
+	top:20,
+	image:"images/header.png"
+},
+"#header[platform=blackberry]":{
+	width: 309
+},
+".controlContainer" : {
+	top : 17,
+	left: 20,
+	right: 20,
+	height:Ti.UI.SIZE
+},
+"#createAccountForm":{
+	width:Ti.UI.SIZE,
+	height:Ti.UI.SIZE
+}
+"#loginBtn" : {
+	width:100,
+	right:3
+}

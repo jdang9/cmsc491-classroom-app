@@ -24,6 +24,8 @@ function Controller() {
     var $ = this;
     var exports = {};
     $.__views.win3 = Ti.UI.createWindow({
+        backgroundColor: "#141925",
+        color: "#fff",
         id: "win3"
     });
     $.__views.win3 && $.addTopLevelView($.__views.win3);

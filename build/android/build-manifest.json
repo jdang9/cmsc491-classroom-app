@@ -3,7 +3,7 @@
 	"deployType": "test",
 	"classname": "Classroom",
 	"platformPath": "C:\\ProgramData\\Titanium\\mobilesdk\\win32\\3.5.1.GA\\android",
-	"modulesHash": "7fb655db1d51a26b74a2778ab4a02a6b",
+	"modulesHash": "0ce96a99f1c02b0f71c5c976f94cac14",
 	"modulesManifestHash": "2ae63cf6e924be792a83907a44fce00b",
 	"modulesNativeHash": "d41d8cd98f00b204e9800998ecf8427e",
 	"modulesBindingsHash": "d41d8cd98f00b204e9800998ecf8427e",

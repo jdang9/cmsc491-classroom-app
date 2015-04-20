@@ -1,7 +1,7 @@
 ".container" : {
-  	backgroundColor: "#fff"
-}
-
+  	backgroundColor: "#141925",
+  	color: "#fff"
+},
 "Label":{
-	color: "#000"
+	color: "#fff"
 }

@@ -3,12 +3,22 @@
 		<View id="profileContainer">
 				<View id="profileHorizontal">
 					<View id="profileImage">
-						<Label class="LblTxt">Profile Image</Label>
-						<Button id="upload" onClick="uploadPhoto">Upload image</Button>
-						<Button id="upload" onClick="searchPhoto">Search Photo</Button>
+						<View class="viewTitle">
+							<Label class="Title">Profile Image</Label>
+						</View>
+						<View id="profilePicture">
+							<!--<ImageView id="picture" image="https://s3-us-west-1.amazonaws.com/storage.cloud.appcelerator.com/IDV4nJjavVe34WIfTgVjl0HFPNgAzvky/photos/0f/08/5533ca457eead2057e609806/tixhr-596362127_original.jpeg">
+						</ImageView>-->
+						</View>
+						<View id="uploadPictureButton">
+						</View>
+						<!--<Button id="upload" onClick="uploadPhoto">Upload image</Button>-->
 						
 					</View>
 					<View id="profileBasic">
+						<View class="viewTitle">
+							<Label class="Title">Basic Info</Label>
+						</View>
 						<Label class="LblTxt" id="username"></Label>
 						<Label class="LblTxt" id="firstname"></Label>
 						<Label class="LblTxt" id="lastname"></Label>
@@ -18,10 +28,18 @@
 				</View>
 				<View id="profileVertical">
 					<View id="profileSpecific">
-						<Label class="LblTxt">Profile Specific Info</Label>
+						<View class="viewTitle">
+							<Label class="Title">Profile Specific Info</Label>
+						</View>
+						<View id="specificProfile">
+							<TableView id="bioText">
+  							</TableView>
+						</View>
 					</View>
 					<View id="profileClasses">
-						<Label class="LblTxt">Classes</Label>
+						<View class="viewTitle">
+							<Label class="Title">Classes</Label>
+						</View>
 					</View>
 				</View>
 		</View>

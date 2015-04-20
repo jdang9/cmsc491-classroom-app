@@ -1,5 +1,7 @@
 <Alloy>
-	<Window class="container">
-		<Label id="label">This is Collaboration</Label>
+	<Window class="container" id="myList" layout="vertical">
+		<TableView id="tableView1">
+		</TableView>
+		<Button id="createPostButton" onClick="createPost">Create Post</Button>
 	</Window>
 </Alloy>

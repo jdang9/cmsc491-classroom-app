@@ -24,10 +24,13 @@ function Controller() {
     var $ = this;
     var exports = {};
     $.__views.win5 = Ti.UI.createWindow({
+        backgroundColor: "#141925",
+        color: "#fff",
         id: "win5"
     });
     $.__views.win5 && $.addTopLevelView($.__views.win5);
     $.__views.label = Ti.UI.createLabel({
+        color: "#fff",
         text: "This is Check-in",
         id: "label"
     });

@@ -8,26 +8,43 @@ function __processArg(obj, key) {
 }
 
 function Controller() {
-    function createUser() {
+    function cancelAccountClick() {
+        Ti.API.info("CANCEL ACCOUNT CLICK");
+        var window = Alloy.createController("index").getView();
+        window.open();
+    }
+    function moveLoginContainer(evt) {
+        $.loginContainer.animate(Ti.App.keyboardVisible ? {
+            center: {
+                x: Ti.Platform.displayCaps.platformWidth / 2,
+                y: (Ti.Platform.displayCaps.platformHeight - evt.keyboardFrame.height) / 2
+            },
+            duration: 250
+        } : {
+            center: {
+                x: Ti.Platform.displayCaps.platformWidth / 2,
+                y: Ti.Platform.displayCaps.platformHeight / 2
+            },
+            duration: 250
+        });
+    }
+    function createClick() {
         Cloud.Users.create({
-            username: $.username.value,
-            password: $.password.value,
-            password_confirmation: $.password.value,
-            email: $.email.value,
+            username: $.username_create.value,
+            password: $.password_create.value,
+            password_confirmation: $.password_confirm_create.value,
+            email: $.email_create.value,
             first_name: $.first_name.value,
             last_name: $.last_name.value
         }, function(e) {
             if (e.success) {
-                var user = e.users[0];
-                alert("Success:\nid: " + user.id + "\nsessionId: " + Cloud.sessionId + "\n");
+                {
+                    e.users[0];
+                }
                 var window = Alloy.createController("main").getView();
                 window.open;
             } else alert("Error:\n" + (e.error && e.message || JSON.stringify(e)));
         });
-    }
-    function cancel() {
-        var window = Alloy.createController("index").getView();
-        window.open();
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "signup";
@@ -44,157 +61,281 @@ function Controller() {
     }
     var $ = this;
     var exports = {};
+    var __defers = {};
     $.__views.signup = Ti.UI.createWindow({
-        backgroundColor: "white",
         layout: "vertical",
         id: "signup"
     });
     $.__views.signup && $.addTopLevelView($.__views.signup);
-    var __alloyId17 = [];
-    $.__views.textFields = Ti.UI.createTableViewSection({
-        separatorColor: "white",
-        divider: "white",
-        id: "textFields",
-        layout: "vertical"
+    $.__views.loginContainer = Ti.UI.createView({
+        backgroundColor: "#141925",
+        width: Ti.UI.FILL,
+        height: Ti.UI.FILL,
+        layout: "vertical",
+        id: "loginContainer"
     });
-    __alloyId17.push($.__views.textFields);
-    $.__views.__alloyId18 = Ti.UI.createTableViewRow({
-        height: "80",
-        width: "62%",
-        align: "center",
+    $.__views.signup.add($.__views.loginContainer);
+    $.__views.bodyContainer = Ti.UI.createView({
+        top: 0,
+        height: Ti.UI.FILL,
+        id: "bodyContainer"
+    });
+    $.__views.loginContainer.add($.__views.bodyContainer);
+    $.__views.createAccountView = Ti.UI.createView({
+        pd: 20,
+        height: Ti.UI.SIZE,
+        width: Ti.UI.FILL,
+        layout: "vertical",
+        opacity: 1,
+        id: "createAccountView"
+    });
+    $.__views.bodyContainer.add($.__views.createAccountView);
+    $.__views.scrollView = Ti.UI.createScrollView({
+        id: "scrollView",
+        showVerticalScrollIndicator: "true",
+        showHorizontalScrollIndicator: "false",
+        height: "100%",
+        width: "100%"
+    });
+    $.__views.createAccountView.add($.__views.scrollView);
+    $.__views.createAccountView = Ti.UI.createView({
+        pd: 20,
+        height: Ti.UI.SIZE,
+        width: Ti.UI.FILL,
+        layout: "vertical",
+        opacity: 1,
+        id: "createAccountView"
+    });
+    $.__views.scrollView.add($.__views.createAccountView);
+    $.__views.__alloyId16 = Ti.UI.createLabel({
+        color: "#fff",
+        height: 30,
+        top: 10,
+        left: 20,
+        width: Ti.UI.SIZE,
+        text: "Username",
+        id: "__alloyId16"
+    });
+    $.__views.createAccountView.add($.__views.__alloyId16);
+    $.__views.username_create = Ti.UI.createTextField({
+        color: "#fff",
+        height: 50,
+        left: 20,
+        right: 20,
+        backgroundColor: "#2D3442",
+        paddingLeft: 15,
+        autocapitalize: false,
+        autocorrect: false,
+        borderWidth: 0,
+        hintText: "Username",
+        id: "username_create"
+    });
+    $.__views.createAccountView.add($.__views.username_create);
+    $.__views.__alloyId17 = Ti.UI.createLabel({
+        color: "#fff",
+        height: 30,
+        top: 10,
+        left: 20,
+        width: Ti.UI.SIZE,
+        text: "Password",
+        id: "__alloyId17"
+    });
+    $.__views.createAccountView.add($.__views.__alloyId17);
+    $.__views.password_create = Ti.UI.createTextField({
+        color: "#fff",
+        height: 50,
+        left: 20,
+        right: 20,
+        backgroundColor: "#2D3442",
+        paddingLeft: 15,
+        autocapitalize: false,
+        autocorrect: false,
+        borderWidth: 0,
+        hintText: "Password",
+        passwordMask: true,
+        id: "password_create"
+    });
+    $.__views.createAccountView.add($.__views.password_create);
+    $.__views.__alloyId18 = Ti.UI.createLabel({
+        color: "#fff",
+        height: 30,
+        top: 10,
+        left: 20,
+        width: Ti.UI.SIZE,
+        text: "Password Confirmation",
         id: "__alloyId18"
     });
-    $.__views.textFields.add($.__views.__alloyId18);
-    $.__views.username = Ti.UI.createTextField({
-        textColor: "black",
-        textAlign: "center",
-        font: "Helvetica Neue Light",
-        borderStyle: "Ti.UI.INPUT_BORDERSTYLE_ROUNDED",
-        top: "10",
-        bottom: "10",
-        maxLength: "16",
-        id: "username",
-        hintText: "Enter a user name"
+    $.__views.createAccountView.add($.__views.__alloyId18);
+    $.__views.password_confirm_create = Ti.UI.createTextField({
+        color: "#fff",
+        height: 50,
+        left: 20,
+        right: 20,
+        backgroundColor: "#2D3442",
+        paddingLeft: 15,
+        autocapitalize: false,
+        autocorrect: false,
+        borderWidth: 0,
+        hintText: "Confirm Password",
+        passwordMask: true,
+        id: "password_confirm_create"
     });
-    $.__views.__alloyId18.add($.__views.username);
-    $.__views.__alloyId19 = Ti.UI.createTableViewRow({
-        height: "80",
-        width: "62%",
-        align: "center",
+    $.__views.createAccountView.add($.__views.password_confirm_create);
+    $.__views.__alloyId19 = Ti.UI.createLabel({
+        color: "#fff",
+        height: 30,
+        top: 10,
+        left: 20,
+        width: Ti.UI.SIZE,
+        text: "Email",
         id: "__alloyId19"
     });
-    $.__views.textFields.add($.__views.__alloyId19);
-    $.__views.password = Ti.UI.createTextField({
-        textColor: "black",
-        textAlign: "center",
-        font: "Helvetica Neue Light",
-        borderStyle: "Ti.UI.INPUT_BORDERSTYLE_ROUNDED",
-        top: "10",
-        bottom: "10",
-        maxLength: "16",
-        id: "password",
-        passwordMask: "true",
-        hintText: "Enter your password"
+    $.__views.createAccountView.add($.__views.__alloyId19);
+    $.__views.email_create = Ti.UI.createTextField({
+        color: "#fff",
+        height: 50,
+        left: 20,
+        right: 20,
+        backgroundColor: "#2D3442",
+        paddingLeft: 15,
+        autocapitalize: false,
+        autocorrect: false,
+        borderWidth: 0,
+        hintText: "Email",
+        id: "email_create"
     });
-    $.__views.__alloyId19.add($.__views.password);
-    $.__views.__alloyId20 = Ti.UI.createTableViewRow({
-        height: "80",
-        width: "62%",
-        align: "center",
+    $.__views.createAccountView.add($.__views.email_create);
+    $.__views.__alloyId20 = Ti.UI.createLabel({
+        color: "#fff",
+        height: 30,
+        top: 10,
+        left: 20,
+        width: Ti.UI.SIZE,
+        text: "First Name",
         id: "__alloyId20"
     });
-    $.__views.textFields.add($.__views.__alloyId20);
-    $.__views.email = Ti.UI.createTextField({
-        textColor: "black",
-        textAlign: "center",
-        font: "Helvetica Neue Light",
-        borderStyle: "Ti.UI.INPUT_BORDERSTYLE_ROUNDED",
-        top: "10",
-        bottom: "10",
-        maxLength: "16",
-        id: "email",
-        hintText: "Enter your e-mail"
+    $.__views.createAccountView.add($.__views.__alloyId20);
+    $.__views.first_name = Ti.UI.createTextField({
+        color: "#fff",
+        height: 50,
+        left: 20,
+        right: 20,
+        backgroundColor: "#2D3442",
+        paddingLeft: 15,
+        autocapitalize: false,
+        autocorrect: false,
+        borderWidth: 0,
+        hintText: "First Name",
+        id: "first_name"
     });
-    $.__views.__alloyId20.add($.__views.email);
-    $.__views.__alloyId21 = Ti.UI.createTableViewRow({
-        height: "80",
-        width: "62%",
-        align: "center",
+    $.__views.createAccountView.add($.__views.first_name);
+    $.__views.__alloyId21 = Ti.UI.createLabel({
+        color: "#fff",
+        height: 30,
+        top: 10,
+        left: 20,
+        width: Ti.UI.SIZE,
+        text: "Last Name",
         id: "__alloyId21"
     });
-    $.__views.textFields.add($.__views.__alloyId21);
-    $.__views.first_name = Ti.UI.createTextField({
-        textColor: "black",
-        textAlign: "center",
-        font: "Helvetica Neue Light",
-        borderStyle: "Ti.UI.INPUT_BORDERSTYLE_ROUNDED",
-        top: "10",
-        bottom: "10",
-        maxLength: "16",
-        id: "first_name",
-        hintText: "Enter your first name"
+    $.__views.createAccountView.add($.__views.__alloyId21);
+    $.__views.last_name = Ti.UI.createTextField({
+        color: "#fff",
+        height: 50,
+        left: 20,
+        right: 20,
+        backgroundColor: "#2D3442",
+        paddingLeft: 15,
+        autocapitalize: false,
+        autocorrect: false,
+        borderWidth: 0,
+        hintText: "Last Name",
+        id: "last_name"
     });
-    $.__views.__alloyId21.add($.__views.first_name);
-    $.__views.__alloyId22 = Ti.UI.createTableViewRow({
-        height: "80",
-        width: "62%",
-        align: "center",
+    $.__views.createAccountView.add($.__views.last_name);
+    $.__views.__alloyId22 = Ti.UI.createView({
+        top: 17,
+        left: 20,
+        right: 20,
+        height: Ti.UI.SIZE,
         id: "__alloyId22"
     });
-    $.__views.textFields.add($.__views.__alloyId22);
-    $.__views.last_name = Ti.UI.createTextField({
-        textColor: "black",
+    $.__views.createAccountView.add($.__views.__alloyId22);
+    $.__views.emailBtn = Ti.UI.createView({
+        height: 44,
+        top: 0,
+        backgroundColor: "#5A86AF",
+        borderRadius: 5,
+        width: 130,
+        right: 3,
+        color: "#fff",
+        id: "emailBtn"
+    });
+    $.__views.__alloyId22.add($.__views.emailBtn);
+    createClick ? $.__views.emailBtn.addEventListener("click", createClick) : __defers["$.__views.emailBtn!click!createClick"] = true;
+    $.__views.resetLbl = Ti.UI.createLabel({
+        color: "#fff",
+        font: {
+            fontSize: 14
+        },
         textAlign: "center",
-        font: "Helvetica Neue Light",
-        borderStyle: "Ti.UI.INPUT_BORDERSTYLE_ROUNDED",
-        top: "10",
-        bottom: "10",
-        maxLength: "16",
-        id: "last_name",
-        hintText: "Enter your last name"
+        height: Ti.UI.SIZE,
+        width: Ti.UI.SIZE,
+        text: "Create Account",
+        id: "resetLbl"
     });
-    $.__views.__alloyId22.add($.__views.last_name);
-    $.__views.__alloyId23 = Ti.UI.createTableViewRow({
-        height: "100",
-        width: "62%",
-        align: "center",
-        id: "__alloyId23"
+    $.__views.emailBtn.add($.__views.resetLbl);
+    $.__views.cancelBtn = Ti.UI.createView({
+        height: 44,
+        top: 0,
+        backgroundColor: "#6a6a6a",
+        borderRadius: 5,
+        left: 3,
+        width: 130,
+        color: "#fff",
+        id: "cancelBtn"
     });
-    $.__views.textFields.add($.__views.__alloyId23);
-    $.__views.newUserSubmit = Ti.UI.createButton({
-        backgroundColor: "#457AB1",
-        color: "white",
-        borderStyle: "Ti.UI.INPUT_BORDERSTYLE_ROUNDED",
-        id: "newUserSubmit",
-        title: "Submit"
+    $.__views.__alloyId22.add($.__views.cancelBtn);
+    cancelAccountClick ? $.__views.cancelBtn.addEventListener("click", cancelAccountClick) : __defers["$.__views.cancelBtn!click!cancelAccountClick"] = true;
+    $.__views.cancelLbl = Ti.UI.createLabel({
+        color: "#fff",
+        font: {
+            fontSize: 14
+        },
+        textAlign: "center",
+        height: Ti.UI.SIZE,
+        width: Ti.UI.SIZE,
+        text: "Cancel",
+        id: "cancelLbl"
     });
-    $.__views.__alloyId23.add($.__views.newUserSubmit);
-    $.__views.__alloyId24 = Ti.UI.createTableViewRow({
-        height: "100",
-        width: "62%",
-        align: "center",
-        id: "__alloyId24"
-    });
-    $.__views.textFields.add($.__views.__alloyId24);
-    $.__views.newUserCancel = Ti.UI.createButton({
-        backgroundColor: "#457AB1",
-        color: "white",
-        borderStyle: "Ti.UI.INPUT_BORDERSTYLE_ROUNDED",
-        id: "newUserCancel",
-        title: "Cancel"
-    });
-    $.__views.__alloyId24.add($.__views.newUserCancel);
-    $.__views.table = Ti.UI.createTableView({
-        data: __alloyId17,
-        id: "table",
-        separatorColor: "white"
-    });
-    $.__views.signup.add($.__views.table);
+    $.__views.cancelBtn.add($.__views.cancelLbl);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var Cloud = require("ti.cloud");
-    $.newUserSubmit.addEventListener("click", createUser);
-    $.newUserCancel.addEventListener("click", cancel);
+    arguments[0] || {};
+    var actInd;
+    var actIndParent;
+    $.loginClick = function() {
+        loginClick();
+    };
+    $.hideActivityIndicator = function() {
+        null != actInd && $[actIndParent].remove(actInd);
+    };
+    Ti.App.addEventListener("keyboardframechanged", moveLoginContainer);
+    $.open = function() {
+        $.signup.open();
+        $.loginContainer.height = "100%";
+        $.createAccountView.opacity = 1;
+        Ti.API.info($.loginContainer.height);
+    };
+    $.close = function() {
+        Ti.App.removeEventListener("keyboardframechanged", moveLoginContainer);
+        $.destroy();
+        Alloy.CFG.skipLogin = false;
+    };
+    $.open();
+    __defers["$.__views.emailBtn!click!createClick"] && $.__views.emailBtn.addEventListener("click", createClick);
+    __defers["$.__views.cancelBtn!click!cancelAccountClick"] && $.__views.cancelBtn.addEventListener("click", cancelAccountClick);
     _.extend($, exports);
 }
 

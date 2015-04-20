@@ -6,7 +6,7 @@
 		<View id="loginContainer">
 			
 			<!-- Header Image -->
-			<ImageView image="/images/header.png" id="header"/>
+			<ImageView image="/images/header_logo.png" id="header"/>
 			
 			<!-- Form Body -->
 			<View id="bodyContainer">

@@ -1,0 +1,24 @@
+"#commentTextField" : {
+	height: 100,
+	width: "60%",
+	hintText: "Add Comment Here",
+	textAlign: "left",
+	align:"center",
+	borderColor: "white",
+	borderWidth: 2
+}
+
+"#tableView1" : {
+	height: "70%",
+	width: "80%",
+	top: "10%",
+	layout: "vertical",
+	align: "center",
+	border: "2",
+	borderColor: "white"
+}
+
+"#view1" : {
+	width: "100%",
+	height: "70%"
+}

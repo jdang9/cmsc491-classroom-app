@@ -1,0 +1,16 @@
+".container" : {
+  	backgroundColor: "#141925",
+  	color: "white"
+}
+
+"#tableView1" : {
+	height: "70%",
+	width: "80%",
+	top: "10%",
+	layout: "vertical",
+	align: "center",
+	border: "2",
+	borderColor: "white"
+}
+
+

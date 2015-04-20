@@ -69,10 +69,12 @@ function Controller() {
         __parentSymbol: __parentSymbol
     });
     $.__views.__alloyId7 = Ti.UI.createTab({
+        width: "20%",
         window: $.__views.win1.getViewEx({
             recurse: true
         }),
-        title: "DashBoard",
+        title: "",
+        icon: "images/dash.png",
         id: "__alloyId7"
     });
     __alloyId6.push($.__views.__alloyId7);
@@ -81,10 +83,12 @@ function Controller() {
         __parentSymbol: __parentSymbol
     });
     $.__views.__alloyId9 = Ti.UI.createTab({
+        width: "20%",
         window: $.__views.win2.getViewEx({
             recurse: true
         }),
-        title: "Info",
+        title: "",
+        icon: "images/profile.png",
         id: "__alloyId9"
     });
     __alloyId6.push($.__views.__alloyId9);
@@ -93,10 +97,12 @@ function Controller() {
         __parentSymbol: __parentSymbol
     });
     $.__views.__alloyId11 = Ti.UI.createTab({
+        width: "20%",
         window: $.__views.win3.getViewEx({
             recurse: true
         }),
-        title: "Courses",
+        title: "",
+        icon: "images/courses.png",
         id: "__alloyId11"
     });
     __alloyId6.push($.__views.__alloyId11);
@@ -105,10 +111,12 @@ function Controller() {
         __parentSymbol: __parentSymbol
     });
     $.__views.__alloyId13 = Ti.UI.createTab({
+        width: "20%",
         window: $.__views.win4.getViewEx({
             recurse: true
         }),
-        title: "Collaboration",
+        title: "",
+        icon: "images/collab.png",
         id: "__alloyId13"
     });
     __alloyId6.push($.__views.__alloyId13);
@@ -116,14 +124,16 @@ function Controller() {
         id: "win5",
         __parentSymbol: __parentSymbol
     });
-    $.__views.__alloyId15 = Ti.UI.createTab({
+    $.__views.__alloyId14 = Ti.UI.createTab({
+        width: "20%",
         window: $.__views.win5.getViewEx({
             recurse: true
         }),
-        title: "Check-in",
-        id: "__alloyId15"
+        title: "",
+        icon: "images/check.png",
+        id: "__alloyId14"
     });
-    __alloyId6.push($.__views.__alloyId15);
+    __alloyId6.push($.__views.__alloyId14);
     $.__views.main = Ti.UI.createTabGroup({
         tabs: __alloyId6,
         id: "main"

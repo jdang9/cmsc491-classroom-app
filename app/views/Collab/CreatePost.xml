@@ -1,0 +1,15 @@
+<Alloy>
+	<Window class="container" layout="vertical">
+		
+		<TextField class="titleTxt" id="title_text"/>
+		<TextField class="contentTxt" id="content_text"/>
+		
+		<TableView>
+			<TableViewRow layout="horizontal" align="center">
+				<Button id="postButton" onClick="createPost">Post</Button>
+				<Button id="cancelButton" onClick="closeWindow">Cancel</Button>
+			</TableViewRow>
+		</TableView>
+		
+	</Window>
+</Alloy>
