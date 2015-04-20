@@ -134,9 +134,12 @@
 "#specificProfile": {
 	height:'85%',
 	width:Ti.UI.FILL
-}
+},
 "#bioText" : {
 	text: "white",
-	height: 'auto',
+	height: Ti.UI.SIZE,
 	width: '80%',
+},
+"#btnRight": {
+	width:100
 }

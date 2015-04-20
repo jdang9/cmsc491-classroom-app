@@ -9,16 +9,18 @@ function __processArg(obj, key) {
 
 function Controller() {
     function cancel() {
-        var window = Alloy.createController("win2").getView();
+        var window = Alloy.createController("main").getView();
         window.open();
     }
     function submit() {
         Cloud.Users.update({
-            role: $.bioTextField.value
+            custom_fields: {
+                userBio: $.bioTextField.value
+            }
         }, function(e) {
             if (e.success) {
                 var user = e.users[0];
-                alert("Just updated bio as: " + user.role);
+                alert("Just updated bio as: " + user.custom_fields.userBio);
                 cancel();
             } else alert("Error:\n" + (e.error && e.message || JSON.stringify(e)));
         });

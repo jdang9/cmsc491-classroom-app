@@ -10,14 +10,6 @@ var window2 = {response:'test'};
 
 var userBio;  //user data
 
-var win2 = Ti.UI.createWindow({		//Info
-	backgroundColor: '#141925',
-  	exitOnClose: true,
-  	fullscreen: false,
-  	layout: 'vertical',
-  	title: 'Your Profile'
-});
-
 var filename;		// global variableused to store filename url of profile picture
 var username;		// user data
 var firstname;		// user data
@@ -388,7 +380,7 @@ init();
 function addBioButton() {
 	var uploadBioButton = $.UI.create('View', {
 	   classes: ["button"],
-	   id: 'uploadBtn'
+	   id: 'btnRight'
 	});
 	
 	var uploadBioLabel = $.UI.create('Label', {
@@ -409,31 +401,23 @@ function addBioButton() {
 addBioButton();
     
 function updateUserBio(e) {
-Cloud.Users.query(function(e){
+ 
+ Cloud.Users.showMe(function (e) {
+     if (e.success) {
+         var user = e.users[0];
+         var row = Ti.UI.createTableViewRow({
+          title: user.custom_fields.userBio,
+       textAlign: "left",
+       font: {fontSize: 20},
+       textColor: "white"
+   });
+   $.bioText.appendRow(row);
+     } else {
+         alert('Error:\n' +
+             ((e.error && e.message) || JSON.stringify(e)));
+     }
+ });
 
-if (e.success) { 
-        // for (var i = 0; i < e.users.length; i++) {
-            var user = e.users[0];
-           	// alert("This is your Bio: " + user.role);
-           	userBio = user.role;
-            var row = Ti.UI.createTableViewRow({
-            	title: user.role,
-			    textAlign: "left",
-			    font: {fontSize: 20},
-			   	textColor: "white"
-   			});
-			$.bioText.appendRow(row);
-    }
-    else {
-     alert('Error:\n' +
-            ((e.error && e.message) || JSON.stringify(e)));
-    }
-    $.bioText.addEventListener("click",function(e){
-  		alert("clicked on row");
- 	});
-});
 }
 
 updateUserBio();
-
-alert(userBio);

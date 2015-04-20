@@ -161,7 +161,7 @@ function Controller() {
     function addBioButton() {
         var uploadBioButton = $.UI.create("View", {
             classes: [ "button" ],
-            id: "uploadBtn"
+            id: "btnRight"
         });
         var uploadBioLabel = $.UI.create("Label", {
             text: "Edit Bio",
@@ -176,12 +176,11 @@ function Controller() {
         });
     }
     function updateUserBio() {
-        Cloud.Users.query(function(e) {
+        Cloud.Users.showMe(function(e) {
             if (e.success) {
                 var user = e.users[0];
-                userBio = user.role;
                 var row = Ti.UI.createTableViewRow({
-                    title: user.role,
+                    title: user.custom_fields.userBio,
                     textAlign: "left",
                     font: {
                         fontSize: 20
@@ -190,9 +189,6 @@ function Controller() {
                 });
                 $.bioText.appendRow(row);
             } else alert("Error:\n" + (e.error && e.message || JSON.stringify(e)));
-            $.bioText.addEventListener("click", function() {
-                alert("clicked on row");
-            });
         });
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
@@ -410,7 +406,7 @@ function Controller() {
     $.__views.profileSpecific.add($.__views.specificProfile);
     $.__views.bioText = Ti.UI.createTableView({
         text: "white",
-        height: "auto",
+        height: Ti.UI.SIZE,
         width: "80%",
         id: "bioText"
     });
@@ -448,13 +444,6 @@ function Controller() {
     Alloy.Globals.response = "";
     var Cloud = require("ti.cloud");
     var userBio;
-    Ti.UI.createWindow({
-        backgroundColor: "#141925",
-        exitOnClose: true,
-        fullscreen: false,
-        layout: "vertical",
-        title: "Your Profile"
-    });
     var filename;
     var username;
     var firstname;
@@ -465,7 +454,6 @@ function Controller() {
     init();
     addBioButton();
     updateUserBio();
-    alert(userBio);
     _.extend($, exports);
 }
 
