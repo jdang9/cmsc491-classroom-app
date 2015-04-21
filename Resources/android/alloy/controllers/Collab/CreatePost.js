@@ -76,30 +76,30 @@ function Controller() {
         id: "content_text"
     });
     $.__views.CreatePost.add($.__views.content_text);
-    var __alloyId44 = [];
-    $.__views.__alloyId45 = Ti.UI.createTableViewRow({
+    var __alloyId46 = [];
+    $.__views.__alloyId47 = Ti.UI.createTableViewRow({
         layout: "horizontal",
         align: "center",
-        id: "__alloyId45"
+        id: "__alloyId47"
     });
-    __alloyId44.push($.__views.__alloyId45);
+    __alloyId46.push($.__views.__alloyId47);
     $.__views.postButton = Ti.UI.createButton({
         title: "Post",
         id: "postButton"
     });
-    $.__views.__alloyId45.add($.__views.postButton);
+    $.__views.__alloyId47.add($.__views.postButton);
     createPost ? $.__views.postButton.addEventListener("click", createPost) : __defers["$.__views.postButton!click!createPost"] = true;
     $.__views.cancelButton = Ti.UI.createButton({
         title: "Cancel",
         id: "cancelButton"
     });
-    $.__views.__alloyId45.add($.__views.cancelButton);
+    $.__views.__alloyId47.add($.__views.cancelButton);
     closeWindow ? $.__views.cancelButton.addEventListener("click", closeWindow) : __defers["$.__views.cancelButton!click!closeWindow"] = true;
-    $.__views.__alloyId43 = Ti.UI.createTableView({
-        data: __alloyId44,
-        id: "__alloyId43"
+    $.__views.__alloyId45 = Ti.UI.createTableView({
+        data: __alloyId46,
+        id: "__alloyId45"
     });
-    $.__views.CreatePost.add($.__views.__alloyId43);
+    $.__views.CreatePost.add($.__views.__alloyId45);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var Cloud = require("ti.cloud");

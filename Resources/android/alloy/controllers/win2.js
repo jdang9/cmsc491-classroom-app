@@ -211,7 +211,7 @@ function Controller() {
                         width: "15%",
                         height: "auto",
                         font: {
-                            fontSize: 20
+                            fontSize: 14
                         }
                     });
                     var labelTwo = Ti.UI.createLabel({
@@ -219,7 +219,7 @@ function Controller() {
                         width: "85%",
                         height: "auto",
                         font: {
-                            fontSize: 20
+                            fontSize: 14
                         }
                     });
                     newView.add(labelOne);
@@ -281,13 +281,13 @@ function Controller() {
         id: "profileImage"
     });
     $.__views.profileHorizontal.add($.__views.profileImage);
-    $.__views.__alloyId25 = Ti.UI.createView({
+    $.__views.__alloyId27 = Ti.UI.createView({
         height: "15%",
         width: Ti.UI.FILL,
-        id: "__alloyId25"
+        id: "__alloyId27"
     });
-    $.__views.profileImage.add($.__views.__alloyId25);
-    $.__views.__alloyId26 = Ti.UI.createLabel({
+    $.__views.profileImage.add($.__views.__alloyId27);
+    $.__views.__alloyId28 = Ti.UI.createLabel({
         color: "#fff",
         height: 25,
         font: {
@@ -298,9 +298,9 @@ function Controller() {
         width: Ti.UI.SIZE,
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
         text: "Profile Image",
-        id: "__alloyId26"
+        id: "__alloyId28"
     });
-    $.__views.__alloyId25.add($.__views.__alloyId26);
+    $.__views.__alloyId27.add($.__views.__alloyId28);
     $.__views.profilePicture = Ti.UI.createView({
         height: "65%",
         width: "100%",
@@ -323,13 +323,13 @@ function Controller() {
         id: "profileBasic"
     });
     $.__views.profileHorizontal.add($.__views.profileBasic);
-    $.__views.__alloyId27 = Ti.UI.createView({
+    $.__views.__alloyId29 = Ti.UI.createView({
         height: "15%",
         width: Ti.UI.FILL,
-        id: "__alloyId27"
+        id: "__alloyId29"
     });
-    $.__views.profileBasic.add($.__views.__alloyId27);
-    $.__views.__alloyId28 = Ti.UI.createLabel({
+    $.__views.profileBasic.add($.__views.__alloyId29);
+    $.__views.__alloyId30 = Ti.UI.createLabel({
         color: "#fff",
         height: 25,
         font: {
@@ -340,17 +340,17 @@ function Controller() {
         width: Ti.UI.SIZE,
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
         text: "Basic Info",
-        id: "__alloyId28"
+        id: "__alloyId30"
     });
-    $.__views.__alloyId27.add($.__views.__alloyId28);
-    $.__views.__alloyId29 = Ti.UI.createView({
+    $.__views.__alloyId29.add($.__views.__alloyId30);
+    $.__views.__alloyId31 = Ti.UI.createView({
         height: "80%",
         width: "80%",
         backgroundColor: "#2D3442",
         layout: "vertical",
-        id: "__alloyId29"
+        id: "__alloyId31"
     });
-    $.__views.profileBasic.add($.__views.__alloyId29);
+    $.__views.profileBasic.add($.__views.__alloyId31);
     $.__views.username = Ti.UI.createLabel({
         color: "#fff",
         font: {
@@ -364,7 +364,7 @@ function Controller() {
         layout: "vertical",
         id: "username"
     });
-    $.__views.__alloyId29.add($.__views.username);
+    $.__views.__alloyId31.add($.__views.username);
     $.__views.firstname = Ti.UI.createLabel({
         color: "#fff",
         font: {
@@ -378,7 +378,7 @@ function Controller() {
         layout: "vertical",
         id: "firstname"
     });
-    $.__views.__alloyId29.add($.__views.firstname);
+    $.__views.__alloyId31.add($.__views.firstname);
     $.__views.lastname = Ti.UI.createLabel({
         color: "#fff",
         font: {
@@ -392,7 +392,7 @@ function Controller() {
         layout: "vertical",
         id: "lastname"
     });
-    $.__views.__alloyId29.add($.__views.lastname);
+    $.__views.__alloyId31.add($.__views.lastname);
     $.__views.email = Ti.UI.createLabel({
         color: "#fff",
         font: {
@@ -406,7 +406,7 @@ function Controller() {
         layout: "vertical",
         id: "email"
     });
-    $.__views.__alloyId29.add($.__views.email);
+    $.__views.__alloyId31.add($.__views.email);
     $.__views.userID = Ti.UI.createLabel({
         color: "#fff",
         font: {
@@ -420,7 +420,7 @@ function Controller() {
         layout: "vertical",
         id: "userID"
     });
-    $.__views.__alloyId29.add($.__views.userID);
+    $.__views.__alloyId31.add($.__views.userID);
     $.__views.profileVertical = Ti.UI.createView({
         top: "50%",
         width: Ti.UI.SIZE,
@@ -437,13 +437,13 @@ function Controller() {
         id: "profileSpecific"
     });
     $.__views.profileVertical.add($.__views.profileSpecific);
-    $.__views.__alloyId30 = Ti.UI.createView({
+    $.__views.__alloyId32 = Ti.UI.createView({
         height: "15%",
         width: Ti.UI.FILL,
-        id: "__alloyId30"
+        id: "__alloyId32"
     });
-    $.__views.profileSpecific.add($.__views.__alloyId30);
-    $.__views.__alloyId31 = Ti.UI.createLabel({
+    $.__views.profileSpecific.add($.__views.__alloyId32);
+    $.__views.__alloyId33 = Ti.UI.createLabel({
         color: "#fff",
         height: 25,
         font: {
@@ -454,9 +454,9 @@ function Controller() {
         width: Ti.UI.SIZE,
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
         text: "Profile Specific Info",
-        id: "__alloyId31"
+        id: "__alloyId33"
     });
-    $.__views.__alloyId30.add($.__views.__alloyId31);
+    $.__views.__alloyId32.add($.__views.__alloyId33);
     $.__views.specificProfile = Ti.UI.createView({
         height: "85%",
         width: "80%",
@@ -480,13 +480,13 @@ function Controller() {
         id: "profileClasses"
     });
     $.__views.profileVertical.add($.__views.profileClasses);
-    $.__views.__alloyId32 = Ti.UI.createView({
+    $.__views.__alloyId34 = Ti.UI.createView({
         height: "15%",
         width: Ti.UI.FILL,
-        id: "__alloyId32"
+        id: "__alloyId34"
     });
-    $.__views.profileClasses.add($.__views.__alloyId32);
-    $.__views.__alloyId33 = Ti.UI.createLabel({
+    $.__views.profileClasses.add($.__views.__alloyId34);
+    $.__views.__alloyId35 = Ti.UI.createLabel({
         color: "#fff",
         height: 25,
         font: {
@@ -497,21 +497,21 @@ function Controller() {
         width: Ti.UI.SIZE,
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
         text: "Classes",
-        id: "__alloyId33"
+        id: "__alloyId35"
     });
-    $.__views.__alloyId32.add($.__views.__alloyId33);
-    $.__views.__alloyId34 = Ti.UI.createView({
+    $.__views.__alloyId34.add($.__views.__alloyId35);
+    $.__views.__alloyId36 = Ti.UI.createView({
         height: "80%",
         width: "80%",
         backgroundColor: "#2D3442",
         layout: "vertical",
-        id: "__alloyId34"
+        id: "__alloyId36"
     });
-    $.__views.profileClasses.add($.__views.__alloyId34);
+    $.__views.profileClasses.add($.__views.__alloyId36);
     $.__views.courseList = Ti.UI.createTableView({
         id: "courseList"
     });
-    $.__views.__alloyId34.add($.__views.courseList);
+    $.__views.__alloyId36.add($.__views.courseList);
     exports.destroy = function() {};
     _.extend($, $.__views);
     Alloy.Globals.response = "";

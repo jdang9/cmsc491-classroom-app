@@ -455,13 +455,13 @@ function getCourses() {
 						text: " " + json.courses[i].courseNumber,
 						width: "15%",
 						height: "auto",
-						font: {fontSize: 20}
+						font: {fontSize: 14}
 					});
 					var labelTwo = Ti.UI.createLabel({
 						text: "|\t" + json.courses[i].courseName,
 						width: "85%",
 						height: "auto",
-						font: {fontSize: 20}
+						font: {fontSize: 14}
 					});
 					// alert("Course Number: " + json.courses[i].courseNumber + "\nCourse Name: " + json.courses[i].courseName);
 					newView.add(labelOne);

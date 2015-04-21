@@ -110,12 +110,12 @@ function Controller() {
         scrollable: "true"
     });
     $.__views.view1.add($.__views.tableView1);
-    var __alloyId47 = [];
+    var __alloyId49 = [];
     $.__views.tableView2 = Ti.UI.createTableViewRow({
         id: "tableView2",
         layout: "vertical"
     });
-    __alloyId47.push($.__views.tableView2);
+    __alloyId49.push($.__views.tableView2);
     $.__views.commentTextField = Ti.UI.createTextArea({
         height: 100,
         width: "60%",
@@ -133,11 +133,11 @@ function Controller() {
     });
     $.__views.tableView2.add($.__views.postComment);
     postComment ? $.__views.postComment.addEventListener("click", postComment) : __defers["$.__views.postComment!click!postComment"] = true;
-    $.__views.__alloyId46 = Ti.UI.createTableView({
-        data: __alloyId47,
-        id: "__alloyId46"
+    $.__views.__alloyId48 = Ti.UI.createTableView({
+        data: __alloyId49,
+        id: "__alloyId48"
     });
-    $.__views.ViewPost.add($.__views.__alloyId46);
+    $.__views.ViewPost.add($.__views.__alloyId48);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var args = arguments[0] || {};
