@@ -8,6 +8,21 @@ function __processArg(obj, key) {
 }
 
 function Controller() {
+    function sendAttendance(data, url) {
+        var xhr = Titanium.Network.createHTTPClient();
+        xhr.open("POST", url);
+        xhr.onload = function() {
+            var json = JSON.parse(this.responseText);
+            alert(JSON.stringify(json));
+        };
+        xhr.onerror = function() {
+            alert(this.error + ": " + this.statusText);
+            return false;
+        };
+        xhr.send({
+            uid: data
+        });
+    }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "win5";
     if (arguments[0]) {
@@ -37,12 +52,13 @@ function Controller() {
     $.__views.win5.add($.__views.label);
     exports.destroy = function() {};
     _.extend($, $.__views);
-    Ti.UI.createWindow({
-        backgroundColor: "green",
-        exitOnClose: true,
-        fullscreen: false,
-        layout: "vertical",
-        title: "Uilities"
+    var Cloud = require("ti.cloud");
+    Cloud.Users.showMe(function(e) {
+        if (e.success) {
+            var user = e.users[0];
+            var uid = user.id;
+            sendAttendance(uid, "http://jamesfreund.com/mobile/setAttendance.php");
+        } else alert("Error:\n" + (e.error && e.message || JSON.stringify(e)));
     });
     _.extend($, exports);
 }

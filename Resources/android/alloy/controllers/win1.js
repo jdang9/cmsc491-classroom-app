@@ -69,7 +69,7 @@ function Controller() {
                     }
                     var labelOne = Ti.UI.createLabel({
                         text: " " + json.announcements[i].regDate,
-                        width: "15%",
+                        width: "25%",
                         height: "auto",
                         font: {
                             fontSize: 20
@@ -77,7 +77,7 @@ function Controller() {
                     });
                     var labelTwo = Ti.UI.createLabel({
                         text: "|	" + json.announcements[i].courseName,
-                        width: "50%",
+                        width: "40%",
                         height: "auto",
                         font: {
                             fontSize: 14

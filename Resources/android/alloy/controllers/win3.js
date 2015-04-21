@@ -110,7 +110,7 @@ function Controller() {
     $.__views.win3.add($.__views.courseList);
     $.__views.__alloyId37 = Ti.UI.createView({
         bottom: "5%",
-        width: "50%",
+        width: "85%",
         height: "30%",
         align: "center",
         layout: "horizontal",
