@@ -27,12 +27,21 @@ function Controller() {
         var dd = today.getDate();
         var mm = today.getMonth() + 1;
         var yyyy = today.getFullYear();
+        var day = today.getDay();
+        var dayName = "";
         10 > dd && (dd = "0" + dd);
         10 > mm && (mm = "0" + mm);
         today = mm + "/" + dd + "/" + yyyy;
+        0 == day && (dayName = "sunday");
+        1 == day && (dayName = "monday");
+        2 == day && (dayName = "tuesday");
+        3 == day && (dayName = "wednesday");
+        4 == day && (dayName = "thursday");
+        5 == day && (dayName = "friday");
+        6 == day && (dayName = "saturday");
         var todayImage = Ti.UI.createImageView({
-            image: "/images/monday.png",
-            height: "30%"
+            image: "/images/" + dayName + ".png",
+            height: "100%"
         });
         $.date.add(addLabel(today, "32px", "white", "center", "", "currentDate", "vertical"));
         $.today.add(todayImage);
@@ -156,7 +165,7 @@ function Controller() {
     });
     $.__views.dashboardContainer.add($.__views.date);
     $.__views.today = Ti.UI.createView({
-        height: "200px",
+        height: "75px",
         width: Ti.UI.SIZE,
         id: "today"
     });

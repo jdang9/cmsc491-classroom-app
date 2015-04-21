@@ -25,6 +25,8 @@ function getToday() {
 	var dd = today.getDate();
 	var mm = today.getMonth()+1; //January is 0!
 	var yyyy = today.getFullYear();
+	var day = today.getDay();
+	var dayName = '';
 	
 	if(dd<10) {
 	    dd='0'+dd
@@ -36,9 +38,17 @@ function getToday() {
 	
 	today = mm+'/'+dd+'/'+yyyy;
 	
+	if(day == 0) {dayName = 'sunday';}
+	if(day == 1) {dayName = 'monday';}
+	if(day == 2) {dayName = 'tuesday';}
+	if(day == 3) {dayName = 'wednesday';}
+	if(day == 4) {dayName = 'thursday';}
+	if(day == 5) {dayName = 'friday';}
+	if(day == 6) {dayName = 'saturday';}
+	
 	var todayImage = Ti.UI.createImageView({
-		image:'/images/monday.png',
-		height:'30%'
+		image:'/images/' + dayName + '.png',
+		height:'100%'
 	});
 	
 	$.date.add(addLabel(today, '32px', 'white', 'center', '', 'currentDate', 'vertical'));

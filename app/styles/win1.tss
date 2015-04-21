@@ -20,7 +20,7 @@
 	width:Ti.UI.FILL
 },
 "#today" : {
-	height:"200px",
+	height:"75px",
 	width:Ti.UI.SIZE
 },
 ".Title" : {
