@@ -1,18 +1,18 @@
 <Alloy>
 	<TabGroup onOpen="doopen">
-		<Tab title="DashBoard">
+		<Tab class="taber" title="" icon="images/dash.png">
 			<Require src="win1" id="win1"/>
 		</Tab>
-		<Tab title="Info">
+		<Tab class="taber" title="" icon="images/profile.png">
 			<Require src="win2" id="win2"/>
 		</Tab>
-		<Tab title="Courses">
+		<Tab class="taber" title="" icon="images/courses.png">
 			<Require src="win3" id="win3"/>
 		</Tab>
-		<Tab title="Collaboration">
+		<Tab class="taber" title="" icon="images/collab.png">
 			<Require src="win4" id="win4"/>
 		</Tab>
-		<Tab title="Check-in">
+		<Tab class="taber" title="" icon="images/check.png">
 			<Require src="win5" id="win5"/>
 		</Tab>
 	</TabGroup>

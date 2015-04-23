@@ -1,5 +1,43 @@
 <Alloy>
 	<Window class="container">
-		<Label id="label">This is Course</Label>
+		<TableView id="courseList" />
+		
+		<View class="mainView">
+			<View class="secondView">
+				<Label class="courseLabels_left">Course Number:</Label>
+				<Label class="courseLabels_left">Course Name:</Label>
+				<Label class="courseLabels_left">Instructor:</Label>
+				<Label class="courseLabels_left">Class Time:</Label>
+				<Label class="courseLabels_left">Class Days:</Label>
+			</View>
+			<View class="secondView">
+				<Label class="courseLabels_right" id="label_number"></Label>
+				<Label class="courseLabels_right" id="label_name"></Label>
+				<Label class="courseLabels_right" id="label_instructor"></Label>
+				<Label class="courseLabels_right" id="label_time"></Label>
+				<Label class="courseLabels_right" id="label_days"></Label>
+			</View>
+		</View>	
+			<!-- <View class="secondView">
+				<Label class="courseLabels">Course Number:</Label>
+				<Label class="courseLabels" id="label_number">Test</Label>
+			</View>
+			<View class="secondView">
+				<Label class="courseLabels">Course Name:</Label>
+				<Label class="courseLabels" id="label_name">Test2</Label>
+			</View >
+			<View class="secondView">
+				<Label class="courseLabels">Instructor:</Label>
+				<Label class="courseLabels" id="label_instructor">Test3</Label>
+			</View>
+			<View class="secondView">
+				<Label class="courseLabels">Class Time:</Label>
+				<Label class="courseLabels" id="label_time">Test4</Label>
+			</View>
+			<View class="secondView">
+				<Label class="courseLabels">Class Days:</Label>
+				<Label class="courseLabels" id="label_days">Test5</Label>
+			</View> -->
+		
 	</Window>
 </Alloy>

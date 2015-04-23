@@ -17,7 +17,7 @@
  */
 @protocol TiKeyboardFocusableView
 
-#pragma mark Public Classroom APIs.
+#pragma mark Public ClassroomPlus APIs.
 
 /**
  Tells the view to focus.

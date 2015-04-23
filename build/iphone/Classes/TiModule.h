@@ -13,7 +13,7 @@
 @class TiHost;
 
 /**
- The base class for all Classroom modules
+ The base class for all ClassroomPlus modules
  */
 @interface TiModule : TiProxy 
 {
@@ -51,30 +51,30 @@
 // lifecycle
 
 /**
- Classroom Platform calls this method on startup.
+ ClassroomPlus Platform calls this method on startup.
  */
 -(void)startup;
 
 /**
- Classroom Platform calls this method on shutdown.
+ ClassroomPlus Platform calls this method on shutdown.
  @param sender The sender of the event.
  */
 -(void)shutdown:(id)sender;
 
 /**
- Classroom Platform calls this method on suspend.
+ ClassroomPlus Platform calls this method on suspend.
  @param sender The sender of the event.
  */
 -(void)suspend:(id)sender;
 
 /**
- Classroom Platform calls this method on entering background.
+ ClassroomPlus Platform calls this method on entering background.
  @param sender The sender of the event.
  */
 -(void)paused:(id)sender;
 
 /**
- Classroom Platform calls this method on resume.
+ ClassroomPlus Platform calls this method on resume.
  @param sender The sender of the event.
  */
 -(void)resume:(id)sender;

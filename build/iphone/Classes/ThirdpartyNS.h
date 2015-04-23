@@ -7,8 +7,8 @@
  * WARNING: This is generated code. Modify at your own risk and without support.
  */
 
-#ifndef Classroom_ThirdpartyNS_h
-#define Classroom_ThirdpartyNS_h
+#ifndef ClassroomPlus_ThirdpartyNS_h
+#define ClassroomPlus_ThirdpartyNS_h
 
 #ifndef __TI_NAMESPACE_PREFIX_
 #define __TI_NAMESPACE_PREFIX_	TI

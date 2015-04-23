@@ -21,7 +21,7 @@
 
 @property (nonatomic, readonly) ADBannerView* adview;
 
-#pragma mark - Classroom Internal Use
+#pragma mark - ClassroomPlus Internal Use
 -(CGFloat)contentHeightForWidth:(CGFloat)value;
 -(CGFloat)contentWidthForWidth:(CGFloat)value;
 @end

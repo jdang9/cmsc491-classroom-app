@@ -1,5 +1,16 @@
 <Alloy>
 	<Window class="container">
-		<Label id="label">This is the DashBoard</Label>
+		<View id="dashboardContainer">
+			<View id="date" class="viewTitle">
+			</View>
+			<View id="today">
+			</View>
+			<View class="viewTitle">
+				<Label class="Title">Announcements</Label>
+			</View>
+			<View id="announcementsCountainer">
+				<TableView id="announcementList" />
+			</View>
+		</View>
 	</Window>
 </Alloy>

@@ -52,7 +52,7 @@
 @end
 
 /**
- Protocol for containment controller. Implemented by UIViewControllers that can host Classroom Windows
+ Protocol for containment controller. Implemented by UIViewControllers that can host ClassroomPlus Windows
  */
 @protocol TiControllerContainment <NSObject>
 @required

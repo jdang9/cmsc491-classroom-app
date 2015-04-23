@@ -1,0 +1,15 @@
+<Alloy>
+	<Window class="container">
+		<View id="profileContainer">
+			<View id="bioChange">
+				<TextArea id="bioTextField" />
+				<TableView class="tableView">
+					<TableViewRow id="row" layout="horizontal">
+						<Button id="submitBio" onClick="submit">Submit</Button>
+						<Button id="cancelBio" onClick="cancel">Cancel</Button>
+					</TableViewRow>
+				</TableView>
+			</View>
+		</View>		
+	</Window>
+</Alloy>

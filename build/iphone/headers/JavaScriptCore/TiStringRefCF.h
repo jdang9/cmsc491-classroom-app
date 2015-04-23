@@ -1,8 +1,8 @@
 /**
- * Classroom Classroom License
- * This source code and all modifications done by Classroom
+ * ClassroomPlus ClassroomPlus License
+ * This source code and all modifications done by ClassroomPlus
  * are licensed under the Apache Public License (version 2) and
- * are Copyright (c) 2009-2014 by Classroom, Inc.
+ * are Copyright (c) 2009-2014 by ClassroomPlus, Inc.
  */
 
 /*

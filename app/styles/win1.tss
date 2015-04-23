@@ -1,7 +1,34 @@
 ".container" : {
-  	backgroundColor: "#fff"
-}
-
+  	backgroundColor: "#141925",
+  	color: "#fff"
+},
 "Label":{
-	color: "#000"
-}
+	color: "#fff"
+},
+"#dashboardContainer" : {
+	top:0,
+	width:Ti.UI.SIZE,
+	height:Ti.UI.SIZE,
+	layout:'vertical',
+},
+"#announcementsCountainer": {
+	pd:20,
+	width:'80%'
+},
+".viewTitle" : {
+	height:"50px",
+	width:Ti.UI.FILL
+},
+"#today" : {
+	height:"75px",
+	width:Ti.UI.SIZE
+},
+".Title" : {
+	height:25,
+	color: "#fff",
+	font: {fontSize: 16},
+	shadowOffset: 1,
+	shadowColor: "#363636",
+	width: Ti.UI.SIZE,
+	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
+},

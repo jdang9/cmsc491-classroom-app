@@ -302,10 +302,10 @@ bool KrollSetProperty(TiContextRef jsContext, TiObjectRef object, TiStringRef pr
 
 // forward declare these
 
-//@interface ClassroomObject : NSObject
+//@interface ClassroomPlusObject : NSObject
 //@end
 
-@interface ClassroomObject (Private)
+@interface ClassroomPlusObject (Private)
 -(NSDictionary*)modules;
 @end
 
@@ -323,9 +323,9 @@ void KrollPropertyNames(TiContextRef ctx, TiObjectRef object, TiPropertyNameAccu
 	{
 		id target = [o target];
 		
-		if ([o isKindOfClass:[ClassroomObject class]])
+		if ([o isKindOfClass:[ClassroomPlusObject class]])
 		{
-			for (NSString *key in [[(ClassroomObject*)o modules] allKeys])
+			for (NSString *key in [[(ClassroomPlusObject*)o modules] allKeys])
 			{
 				TiStringRef value = TiStringCreateWithUTF8CString([key UTF8String]);
 				TiPropertyNameAccumulatorAddName(propertyNames,value);

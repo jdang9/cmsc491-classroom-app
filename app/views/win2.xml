@@ -1,6 +1,53 @@
 <Alloy>
 	<Window class="container">
-		<Label id="label">This is Info</Label>
-		<Button id="weekAtGlance" onClick="doClick">Week At a Glance</Button>
+		<View id="profileContainer">
+				<View id="profileHorizontal">
+					<View id="profileImage">
+						<View class="viewTitle">
+							<Label class="Title">Profile Image</Label>
+						</View>
+						<View id="profilePicture">
+							<!--<ImageView id="picture" image="https://s3-us-west-1.amazonaws.com/storage.cloud.appcelerator.com/IDV4nJjavVe34WIfTgVjl0HFPNgAzvky/photos/0f/08/5533ca457eead2057e609806/tixhr-596362127_original.jpeg">
+						</ImageView>-->
+						</View>
+						<View id="uploadPictureButton">
+						</View>
+						<!--<Button id="upload" onClick="uploadPhoto">Upload image</Button>-->
+						
+					</View>
+					<View id="profileBasic">
+						<View class="viewTitle">
+							<Label class="Title">Basic Info</Label>
+						</View>
+						<View class="restOfBasic">
+							<Label class="LblTxt" id="username"></Label>
+							<Label class="LblTxt" id="firstname"></Label>
+							<Label class="LblTxt" id="lastname"></Label>
+							<Label class="LblTxt" id="email"></Label>
+							<Label class="LblTxt" id="userID"></Label>
+						</View>
+					</View>
+				</View>
+				<View id="profileVertical">
+					<View id="profileSpecific">
+						<View class="viewTitle">
+							<Label class="Title">Profile Specific Info</Label>
+						</View>
+						<View id="specificProfile">
+							<TableView id="bioText">
+  							</TableView>
+						</View>
+					</View>
+					<View id="profileClasses">
+						<View class="viewTitle">
+							<Label class="Title">Classes</Label>
+						</View>
+						<View class="restOfClasses">
+							<TableView id="courseList" />
+						</View>
+					</View>
+				</View>
+		</View>
+		
 	</Window>
 </Alloy>

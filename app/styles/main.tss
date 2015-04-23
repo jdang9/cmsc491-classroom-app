@@ -12,3 +12,7 @@
 		fontSize: 12
 	}
 }
+
+".taber": {
+	width:'20%'
+}

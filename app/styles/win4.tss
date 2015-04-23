@@ -1,0 +1,16 @@
+".container" : {
+  	backgroundColor: "#141925",
+  	color: "#fff"
+}
+
+"#mainThreadTable" : {
+	height: "70%",
+	width: "85%",
+	top: "5%",
+	layout: "vertical",
+	align: "center",
+	border: "2",
+	borderColor: "white"
+}
+
+

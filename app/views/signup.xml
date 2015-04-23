@@ -1,49 +1,50 @@
 <Alloy>
-    <Window class="container">
-        <View id="signup" >
-            <TextField id="text_userSignup" value="Enter a user name" />
-            <TextField id="text_passSignup" passwordMask="true" value="Enter your password" />
-            <TextField id="text_passSignupConfirm" passwordMask="true" value="Re-enter your password" />
-            <Button id="newUserSubmit" title="Submit" />
-            <Button id="newUserCancel" title="Cancel" />
-        </View>
-    </Window>
- 
-</Alloy>
-<!-- <Alloy>
 	
 	<Window class="container" layout="vertical">
 		
-		<TableView id="table" separatorColor="white">
+		<!-- Main Container for the Forms -->
+		<View id="loginContainer">
 			
-			<TableViewSection id="aboveLogo">
-                <TableViewRow height="15%" width="100%"/>
-            </TableViewSection>
-            
-            <TableViewSection id="logo">
-            	
-                <TableViewRow height="300" width="100%">
-                	<ImageView id="image" image="https://i.imgur.com/NfLRcfN.png" height="100%" width="300" />
-                </TableViewRow>
-                
-            </TableViewSection>
-            
-            <TableViewSection id="textFields" layout="vertical">
-            	
-                <TableViewRow height="80" width="62%" align="center">
-                	<TextField id="text_signup" hintText="Email / Username" paddingLeft="100" align="center" width="100%" height="60" />
-                </TableViewRow>
-                
-                <TableViewRow height="80" width="62%" align="center">
-                	<TextField id="text_signPass" hintText="Password" passwordMask="true" paddingLeft="100" width="100%" height="60" />
-                </TableViewRow>
-                <TableViewRow height="100" width="62%" align="center">
-                	<Button id="button_signupSubmit" title="Sign up" top="20" width="100%" height="88" />
-                </TableViewRow>
-                
-            </TableViewSection>
-            
-       </TableView>
+			<!-- Form Body -->
+			<View id="bodyContainer">
+							
+				<!--Create Account Form -->
+				<View id="createAccountView">
+					<ScrollView id="scrollView" showVerticalScrollIndicator="true" showHorizontalScrollIndicator="false" height="100%" width="100%">	
+			            <View id="createAccountView">
+				            <Label class="loginLblTxt">Username</Label>
+							<TextField class="loginTxt" id="username_create"/>
+							<Label class="loginLblTxt">Password</Label>
+							<TextField class="loginTxt" id="password_create"/>
+							<Label class="loginLblTxt">Password Confirmation</Label>
+							<TextField class="loginTxt" id="password_confirm_create"/>
+							<Label class="loginLblTxt">Email</Label>
+							<TextField class="loginTxt" id="email_create"/>
+							<Label class="loginLblTxt">First Name</Label>
+							<TextField class="loginTxt" id="first_name"/>
+							<Label class="loginLblTxt">Last Name</Label>
+							<TextField class="loginTxt" id="last_name"/>
+							<View class="controlContainer">
+								<View class="button" id="emailBtn" onClick="createClick">
+									<Label id="resetLbl" class="buttonLabel">Create Account</Label>
+								</View>	
+								<View class="button" id="cancelBtn" onClick="cancelAccountClick">
+									<Label id="cancelLbl" class="buttonLabel">Cancel</Label>
+								</View>	
+							</View>
+							
+							<!--
+								<Button class="button" id="createBtn" onClick="createClick">Create Account</Button>
+							<View class="button" id="cancelBtn" onClick="cancelAccountClick">
+								<Label id="cancelLbl" class="buttonLabel">Cancel</Label>
+							</View>
+							-->	
+						</View>
+					</ScrollView>
+				</View>
+			</View>
+			
+		</View>
 	
 	</Window>
-</Alloy> -->
+</Alloy>

@@ -1,0 +1,17 @@
+<Alloy>
+	<Window class="container" layout="vertical">
+		
+		<TableView id="tableView1" />
+		<View height=10 width="100%" />
+		<TextArea id="commentTextField" />
+		<View id="mainView">
+			<View class="buttonViews">
+				<Button id="postComment" onClick="postComment">Post</Button>
+			</View>
+			<View class="buttonViews">
+				<Button id="returnToMain" onClick="goBack">Back</Button>
+			</View>
+		</View>
+		
+	</Window>
+</Alloy>

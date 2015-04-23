@@ -1,0 +1,46 @@
+".container" : {
+  	backgroundColor: "#141925",
+  	color: "#fff"
+}
+
+".mainView" : {
+	bottom: "5%",
+	width: "90%",
+	height: "30%",
+	align: "center",
+	layout: "horizontal"
+}
+
+".secondView" : {
+	width: "50%",
+	height: "100%",
+	border: 2,
+	borderColor: "white",
+	layout: "vertical"
+}
+
+".courseLabels_left" : {
+	height: "20%",
+	width: "100%",
+	border: 5,
+	borderColor: "#141925",
+	textAlign: "center"
+}
+
+".courseLabels_right" : {
+	height: "20%",
+	width: "100%",
+	border: 5,
+	borderColor: "#141925",
+	textAlign: "center"
+}
+
+"#courseList" : {
+	top: "5%",
+	height: "50%",
+	width: "90%",
+	layout: "vertical",
+	align: "center",
+	border: "1",
+	borderColor: "white"
+}

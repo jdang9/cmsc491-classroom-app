@@ -1,0 +1,20 @@
+<Alloy>
+	<Window class="container" layout="vertical">
+		
+		<TextArea class="titleTxt" id="title_text" hintText="Title" />
+		<View height="20" width="100%" />
+		<TextArea class="contentTxt" id="content_text" hintText="Post Contents" />
+		
+		<TableView>
+			<TableViewRow layout="horizontal" align="center">
+				<View height="auto" width="50%">
+					<Button id="postButton" align="right" onClick="createPost">Post</Button>
+				</View>
+				<View height="auto" width="50%">
+					<Button id="cancelButton" align="left" onClick="closeWindow">Cancel</Button>
+				</View>
+			</TableViewRow>
+		</TableView>
+		
+	</Window>
+</Alloy>

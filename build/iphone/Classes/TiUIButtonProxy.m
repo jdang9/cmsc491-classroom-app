@@ -68,10 +68,10 @@
 {
 	switch((int)styleCache)
 	{
-		case UIClassroomNativeItemInfoLight:
-		case UIClassroomNativeItemInfoDark:
+		case UIClassroomPlusNativeItemInfoLight:
+		case UIClassroomPlusNativeItemInfoDark:
 			return 18;
-		case UIClassroomNativeItemDisclosure:
+		case UIClassroomPlusNativeItemDisclosure:
 			return 29;
 		default: {
 			break;
@@ -84,10 +84,10 @@
 {
 	switch((int)styleCache)
 	{
-		case UIClassroomNativeItemInfoLight:
-		case UIClassroomNativeItemInfoDark:
+		case UIClassroomPlusNativeItemInfoLight:
+		case UIClassroomPlusNativeItemInfoDark:
 			return 19;
-		case UIClassroomNativeItemDisclosure:
+		case UIClassroomPlusNativeItemDisclosure:
 			return 31;
 		default: {
 			break;
@@ -101,9 +101,9 @@
 {
 	switch ((int)styleCache)
 	{
-		case UIClassroomNativeItemInfoLight:
-		case UIClassroomNativeItemInfoDark:
-		case UIClassroomNativeItemDisclosure:
+		case UIClassroomPlusNativeItemInfoLight:
+		case UIClassroomPlusNativeItemInfoDark:
+		case UIClassroomPlusNativeItemDisclosure:
 			return suggestedResizing & ~(UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
 		default: {
 			break;

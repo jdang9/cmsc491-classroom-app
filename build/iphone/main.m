@@ -8,14 +8,14 @@
 #define STRING(x) _QUOTEME(x)
 
 NSString * const TI_APPLICATION_DEPLOYTYPE = @"development";
-NSString * const TI_APPLICATION_ID = @"com.cmsc491group.ClassroomPlus";
+NSString * const TI_APPLICATION_ID = @"com.ClassroomPlus";
 NSString * const TI_APPLICATION_PUBLISHER = @"JDang";
-NSString * const TI_APPLICATION_URL = @"https://7739880747b478b80484b2595e301fc5d2611b48.cloudapp.appcelerator.com";
-NSString * const TI_APPLICATION_NAME = @"Classroom+";
+NSString * const TI_APPLICATION_URL = @"http://";
+NSString * const TI_APPLICATION_NAME = @"ClassroomPlus++";
 NSString * const TI_APPLICATION_VERSION = @"1.0";
 NSString * const TI_APPLICATION_DESCRIPTION = @"undefined";
-NSString * const TI_APPLICATION_COPYRIGHT = @"2015 by Anh Dang, Hunter Miller, and James Freund";
-NSString * const TI_APPLICATION_GUID = @"5685c0b5-3ada-4948-9f13-1c10d133a7df";
+NSString * const TI_APPLICATION_COPYRIGHT = @"2015 by JDang";
+NSString * const TI_APPLICATION_GUID = @"27f2df06-542c-4b29-9fdf-c48640c5a91b";
 BOOL const TI_APPLICATION_ANALYTICS = true;
 NSString * const TI_APPLICATION_BUILD_TYPE = @"";
 

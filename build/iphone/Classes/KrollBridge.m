@@ -30,7 +30,7 @@ extern NSString * const TI_APPLICATION_DEPLOYTYPE;
 extern NSString * const TI_APPLICATION_GUID;
 extern NSString * const TI_APPLICATION_BUILD_TYPE;
 
-NSString * Classroom$ModuleRequireFormat = @"(function(exports){"
+NSString * ClassroomPlus$ModuleRequireFormat = @"(function(exports){"
 		"var __OXP=exports;var module={'exports':exports};var __dirname=\"%@\";var __filename=\"%@\";%@;\n"
 		"if(module.exports !== __OXP){return module.exports;}"
 		"return exports;})({})";
@@ -40,7 +40,7 @@ NSString * Classroom$ModuleRequireFormat = @"(function(exports){"
 void TiBindingRunLoopAnnounceStart(TiBindingRunLoop runLoop);
 
 
-@implementation ClassroomObject
+@implementation ClassroomPlusObject
 
 -(NSDictionary*)modules
 {
@@ -330,7 +330,7 @@ CFMutableSetRef	krollBridgeRegistry = nil;
 	[self removeProxies];
 	RELEASE_TO_NIL(preload);
 	RELEASE_TO_NIL(context);
-	RELEASE_TO_NIL(_classroom);
+	RELEASE_TO_NIL(_classroomplus);
 	OSSpinLockLock(&krollBridgeRegistryLock);
 	CFSetRemoveValue(krollBridgeRegistry, self);
 	OSSpinLockUnlock(&krollBridgeRegistryLock);
@@ -538,7 +538,7 @@ CFMutableSetRef	krollBridgeRegistry = nil;
 -(void)gc
 {
 	[context gc];
-	[_classroom gc];
+	[_classroomplus gc];
 }
 
 #pragma mark Delegate
@@ -550,18 +550,18 @@ CFMutableSetRef	krollBridgeRegistry = nil;
 
 -(void)didStartNewContext:(KrollContext*)kroll
 {
-	// create Classroom global object
+	// create ClassroomPlus global object
     NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
     
-    // Load the "Classroom" object into the global scope
+    // Load the "ClassroomPlus" object into the global scope
 	NSString *basePath = (url==nil) ? [TiHost resourcePath] : [[[url path] stringByDeletingLastPathComponent] stringByAppendingPathComponent:@"."];
-	_classroom = [[ClassroomObject alloc] initWithContext:kroll host:host context:self baseURL:[NSURL fileURLWithPath:basePath]];
+	_classroomplus = [[ClassroomPlusObject alloc] initWithContext:kroll host:host context:self baseURL:[NSURL fileURLWithPath:basePath]];
 	
 	TiContextRef jsContext = [kroll context];
-	TiValueRef tiRef = [KrollObject toValue:kroll value:_classroom];
+	TiValueRef tiRef = [KrollObject toValue:kroll value:_classroomplus];
 	
-	NSString *_classroomNS = [NSString stringWithFormat:@"T%sanium","it"];
-	TiStringRef prop = TiStringCreateWithCFString((CFStringRef) _classroomNS);
+	NSString *_classroomplusNS = [NSString stringWithFormat:@"T%sanium","it"];
+	TiStringRef prop = TiStringCreateWithCFString((CFStringRef) _classroomplusNS);
 	TiStringRef prop2 = TiStringCreateWithCFString((CFStringRef) [NSString stringWithFormat:@"%si","T"]);
 	TiObjectRef globalRef = TiContextGetGlobalObject(jsContext);
 	TiObjectSetProperty(jsContext, globalRef, prop, tiRef,
@@ -583,7 +583,7 @@ CFMutableSetRef	krollBridgeRegistry = nil;
 	{
 		for (NSString *name in preload)
 		{
-			KrollObject *ti = (KrollObject*)[_classroom valueForKey:name];
+			KrollObject *ti = (KrollObject*)[_classroomplus valueForKey:name];
 			NSDictionary *values = [preload valueForKey:name];
 			for (id key in values)
 			{
@@ -623,7 +623,7 @@ CFMutableSetRef	krollBridgeRegistry = nil;
 		NSNotification *notification = [NSNotification notificationWithName:kTiContextShutdownNotification object:self];
 		[[NSNotificationCenter defaultCenter] postNotification:notification];
 	}
-	[_classroom gc];
+	[_classroomplus gc];
 	
 	if (shutdownCondition)
 	{
@@ -638,7 +638,7 @@ CFMutableSetRef	krollBridgeRegistry = nil;
 {
 	TiThreadPerformOnMainThread(^{[self unregisterForMemoryWarning];}, NO);
 	[self removeProxies];
-	RELEASE_TO_NIL(_classroom);
+	RELEASE_TO_NIL(_classroomplus);
     RELEASE_TO_NIL(console);
 	RELEASE_TO_NIL(context);
 	RELEASE_TO_NIL(preload);
@@ -745,7 +745,7 @@ CFMutableSetRef	krollBridgeRegistry = nil;
 	 */
 	
 	NSString *filename = [sourceURL lastPathComponent];
-	NSString *js = [[NSString alloc] initWithFormat:Classroom$ModuleRequireFormat, dirname, filename,code];
+	NSString *js = [[NSString alloc] initWithFormat:ClassroomPlus$ModuleRequireFormat, dirname, filename,code];
 
 	/* This most likely should be integrated with normal code flow, but to
 	 * minimize impact until a in-depth reconsideration of KrollContext can be
@@ -922,7 +922,7 @@ loadNativeJS:
         }
 		if (![wrapper respondsToSelector:@selector(replaceValue:forKey:notification:)]) {
             [self setCurrentURL:oldURL];
-			@throw [NSException exceptionWithName:@"org.classroom.kroll" 
+			@throw [NSException exceptionWithName:@"org.classroomplus.kroll" 
                                            reason:[NSString stringWithFormat:@"Module \"%@\" failed to leave a valid exports object",path] 
                                          userInfo:nil];
 		}

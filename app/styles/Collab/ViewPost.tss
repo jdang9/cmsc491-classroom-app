@@ -1,0 +1,44 @@
+".container" : {
+	backgroundColor: "#141925",
+	color: "#fff"
+}
+
+"#commentTextField" : {
+	height: 150,
+	width: "50%",
+	hintText: "Add Comment Here",
+	textAlign: "left",
+	borderColor: "white",
+	borderWidth: 2,
+	softKeyBoardOnFocus: "Ti.UI.Android.SOFT_KEYBOARD_HIDE_ON_FOCUS"
+}
+
+"#tableView1" : {
+	top: "5%",
+	height: "60%",
+	width: "85%",
+	layout: "vertical",
+	align: "center",
+	border: "2",
+	borderColor: "white"
+}
+
+"#postComment" : {
+	align: "center"
+}
+
+"#returnToMain" : {
+	align: "center"
+}
+
+"#mainView" : {
+	height: "10%",
+	width: "50%",
+	align: "center",
+	layout: "horizontal"
+}
+
+".buttonViews" : {
+	height: "100%",
+	width: "50%"
+}

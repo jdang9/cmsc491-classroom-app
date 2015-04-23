@@ -60,7 +60,7 @@ extern "C" {
 	#define KMETHOD_DEBUG MEMORY_DEBUG
 #endif
 
-// in simulator we redefine to format for Classroom Developer console
+// in simulator we redefine to format for ClassroomPlus Developer console
 
 
 #define TI_INLINE static __inline__
@@ -309,13 +309,13 @@ void TiExceptionThrowWithNameAndReason(NSString *exceptionName, NSString *reason
 #define DEFINE_EXCEPTIONS \
 - (void) throwException:(NSString *) reason subreason:(NSString*)subreason location:(NSString *)location\
 {\
-	NSString * exceptionName = [@"org.classroom." stringByAppendingString:NSStringFromClass([self class])];\
+	NSString * exceptionName = [@"org.classroomplus." stringByAppendingString:NSStringFromClass([self class])];\
 	TiExceptionThrowWithNameAndReason(exceptionName,reason,subreason,location);\
 }\
 \
 + (void) throwException:(NSString *) reason subreason:(NSString*)subreason location:(NSString *)location\
 {\
-	NSString * exceptionName = @"org.classroom";\
+	NSString * exceptionName = @"org.classroomplus";\
 	TiExceptionThrowWithNameAndReason(exceptionName,reason,subreason,location);\
 }\
 
@@ -426,28 +426,28 @@ DebugLog(@"[WARN] Ti%@.%@ DEPRECATED in %@, in favor of %@.",@"tanium",api,in,ne
 
  //MUST BE NEGATIVE, as it inhabits the same space as UIBarButtonSystemItem
 enum {
-	UIClassroomNativeItemNone = -1, 
-	UIClassroomNativeItemSpinner = -2,
-	UIClassroomNativeItemProgressBar = -3,
+	UIClassroomPlusNativeItemNone = -1, 
+	UIClassroomPlusNativeItemSpinner = -2,
+	UIClassroomPlusNativeItemProgressBar = -3,
 	
-	UIClassroomNativeItemSlider = -4,
-	UIClassroomNativeItemSwitch = -5,
-	UIClassroomNativeItemMultiButton = -6,
-	UIClassroomNativeItemSegmented = -7,
+	UIClassroomPlusNativeItemSlider = -4,
+	UIClassroomPlusNativeItemSwitch = -5,
+	UIClassroomPlusNativeItemMultiButton = -6,
+	UIClassroomPlusNativeItemSegmented = -7,
 	
-	UIClassroomNativeItemTextView = -8,
-	UIClassroomNativeItemTextField = -9,
-	UIClassroomNativeItemSearchBar = -10,
+	UIClassroomPlusNativeItemTextView = -8,
+	UIClassroomPlusNativeItemTextField = -9,
+	UIClassroomPlusNativeItemSearchBar = -10,
 	
-	UIClassroomNativeItemPicker = -11,
-	UIClassroomNativeItemDatePicker = -12,
+	UIClassroomPlusNativeItemPicker = -11,
+	UIClassroomPlusNativeItemDatePicker = -12,
 	
-	UIClassroomNativeItemInfoLight = -13,
-	UIClassroomNativeItemInfoDark = -14,
+	UIClassroomPlusNativeItemInfoLight = -13,
+	UIClassroomPlusNativeItemInfoDark = -14,
 	
-	UIClassroomNativeItemDisclosure = -15,
+	UIClassroomPlusNativeItemDisclosure = -15,
 	
-	UIClassroomNativeItemContactAdd = -16
+	UIClassroomPlusNativeItemContactAdd = -16
 };
 
 
@@ -628,7 +628,7 @@ void incrementKrollCounter();
 void decrementKrollCounter();
     
 /**
- *	TiThreadPerformOnMainThread should replace all Classroom instances of
+ *	TiThreadPerformOnMainThread should replace all ClassroomPlus instances of
  *	performSelectorOnMainThread, ESPECIALLY if wait is to be yes. That way,
  *	exceptional-case main thread activities can process them outside of the
  *	standard event loop.

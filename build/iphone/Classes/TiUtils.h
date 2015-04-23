@@ -39,7 +39,7 @@ typedef enum {
 } EncodingError;
 
 /**
- Classroom orientation flags.
+ ClassroomPlus orientation flags.
  */
 typedef enum
 {

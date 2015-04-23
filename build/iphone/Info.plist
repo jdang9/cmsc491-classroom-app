@@ -14,15 +14,15 @@
 	<array>
 		<dict>
 			<key>CFBundleURLName</key>
-			<string>com.cmsc491group.ClassroomPlus</string>
+			<string>com.ClassroomPlus</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>classroom+</string>
+				<string>classroomplus++</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleIdentifier</key>
-	<string>com.cmsc491group.ClassroomPlus</string>
+	<string>com.ClassroomPlus</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -64,10 +64,16 @@
 		<string>appicon-60.png</string>
 		<string>appicon-60@2x.png</string>
 		<string>appicon-60@3x.png</string>
+		<string>appicon-76.png</string>
+		<string>appicon-76@2x.png</string>
 		<string>appicon-Small-50.png</string>
 		<string>appicon-72@2x.png</string>
+		<string>appicon-Small-50@2x.png</string>
 		<string>appicon-Small.png</string>
 		<string>appicon-Small@2x.png</string>
+		<string>appicon-Small@3x.png</string>
+		<string>appicon-Small-40.png</string>
+		<string>appicon-Small-40@2x.png</string>
 	</array>
 	<key>UILaunchImages</key>
 	<array>

@@ -54,7 +54,7 @@
     NSInteger activeAlertControllerCount;
 }
 
-//Classroom Support
+//ClassroomPlus Support
 -(CGRect)resizeView;
 -(void)repositionSubviews;
 -(UIView *)topWindowProxyView;

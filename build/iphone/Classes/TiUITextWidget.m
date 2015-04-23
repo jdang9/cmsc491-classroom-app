@@ -255,7 +255,7 @@
 }
 
 
-#pragma mark - Classroom Internal Use Only
+#pragma mark - ClassroomPlus Internal Use Only
 -(void)updateKeyboardStatus
 {
     if ( ([[[TiApp app] controller] keyboardVisible]) && ([[[TiApp app] controller] keyboardFocusedProxy] == [self proxy]) ) {

@@ -1,0 +1,8 @@
+"/Users/JDang/Documents/Titanium_Studio_Workspace/ClassroomPlus++/build/android/gen/android/support/v7/appcompat/R.java"
+"/Users/JDang/Documents/Titanium_Studio_Workspace/ClassroomPlus++/build/android/gen/com/ClassroomPlus/ApplicationStylesheet.java"
+"/Users/JDang/Documents/Titanium_Studio_Workspace/ClassroomPlus++/build/android/gen/com/ClassroomPlus/AssetCryptImpl.java"
+"/Users/JDang/Documents/Titanium_Studio_Workspace/ClassroomPlus++/build/android/gen/com/ClassroomPlus/ClassroomplusActivity.java"
+"/Users/JDang/Documents/Titanium_Studio_Workspace/ClassroomPlus++/build/android/gen/com/ClassroomPlus/ClassroomplusAppInfo.java"
+"/Users/JDang/Documents/Titanium_Studio_Workspace/ClassroomPlus++/build/android/gen/com/ClassroomPlus/ClassroomplusApplication.java"
+"/Users/JDang/Documents/Titanium_Studio_Workspace/ClassroomPlus++/build/android/gen/com/ClassroomPlus/R.java"
+"/Users/JDang/Documents/Titanium_Studio_Workspace/ClassroomPlus++/build/android/gen/ti/modules/titanium/ui/R.java"
